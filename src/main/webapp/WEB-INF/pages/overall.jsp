@@ -661,15 +661,18 @@
 
                                        
                                       <!-- erying starts here--> 
-                                        <br><br>
+            
 
-                                      <div class="row" style="padding: 30px 0;">
+                                      <div class="row" style="margin: 0px;">
 
-                                          <div class="row">
-                                              <div class="col-md-2">
+                                          <!--<div class="row"> -->
+                                          <div class="panel panel-default" style="margin:2px">                          
+                                            <div class="panel-body" style="background-color:white; margin:2px;"> 
+
+                                              <div class="col-md-1">
                                               <img src="<c:url value="/resources/img/scholarship.png" />" class="imgCenter"/>
                                               </div>
-                                              <div class="col-md-9">
+                                              <div class="col-md-11">
                                               论文成果质量评分 <span id="scoreP" style="float:right">${score.paper_score}</span>
                                                         <script type="text/javascript">
                                                          var a = ${score.paper_score} ;
@@ -685,7 +688,7 @@
                                                   </div>  
                                                 </div>
 
-                                                <div class="col-md-3">
+                                                <div class="col-md-3" style="padding-left: 0">
                                                 被引用次数评分 <span id="paperSR" style="float:right">${paper_score.ref_score}</span>
                                                 <script type="text/javascript">
                                                          var a = ${paper_score.ref_score} ;
@@ -700,7 +703,7 @@
                                                    </div>  
                                                  </div>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-md-3" style="padding-left: 0">
                                                     专利情况评分 <span id="scorePa" style="float: right">${score.patent_score}</span>
                                                     <script type="text/javascript">
                                                          var a = ${score.patent_score} ;
@@ -728,7 +731,7 @@
                                                   </div>  
                                                 </div>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-md-3" style="padding-right: 0">
                                                 被ISTIC等收录评分 <span id="paperSP" style="float: right">${paper_score.pku_score}</span>
                                                     <script type="text/javascript">
                                                          var a = ${paper_score.pku_score} ;
@@ -745,13 +748,13 @@
                                                 </div>
 
                                               </div>
-                                             
-                                            
 
-
+                                            </div>
+                                           </div> 
+                                         <!--     
                                           </div>
-                                          <br><br><br>
-                                          <hr>
+                                        -->
+                                        
 
 
 
@@ -918,6 +921,11 @@
                                       <br><br>
 
                                       <!--erying end-->
+
+
+
+
+
                                           <!--
                                           <div class="col-md-6">
                                               <img src="<c:url value="/resources/img/scholarship.png" />" class="imgCenter"/>
