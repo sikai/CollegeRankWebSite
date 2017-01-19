@@ -34,6 +34,8 @@ public class Score {
 	private double overall_avg;
 	
 	private int numbers;
+	private int city_numbers;
+	
 	private int talent_rank;
 	private int platform_rank;
 	private int input_rank;
@@ -233,6 +235,14 @@ public class Score {
 		
 	public void setNumbers(int id) {
 		this.numbers = id;
+	}
+	
+	public int getCity_numbers() {
+		return city_numbers;
+	}
+		
+	public void setCity_numbers(int id) {
+		this.city_numbers = id;
 	}
 	
 	public int getTalent_rank() {

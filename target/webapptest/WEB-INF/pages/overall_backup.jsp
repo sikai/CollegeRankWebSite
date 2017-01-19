@@ -577,7 +577,7 @@
 
             var tableName = "${table}";
 
-            $("#mylocal").change(function(){
+        $("#mylocal").change(function(){
             var parentId = $("#mylocal").val();
             if(parentId == -1)
                 return false;

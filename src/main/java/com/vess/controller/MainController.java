@@ -196,7 +196,7 @@ public class MainController {
         //Get score information for the college
         Score score = scoreService.getScoreById(id); 
         model.addAttribute("score",score);
-        /* Get college rank information
+        //Get college rank information
         int overall_rank = scoreService.getScoreOverallRank(id);
         int city_rank = scoreService.getScoreCityRank(id);
         score.setOverall_rank(overall_rank);
@@ -213,7 +213,7 @@ public class MainController {
         score.setOutput_rank(scoreService.getOutputRank(id));        
         model.addAttribute("score",score);
         
-        */
+        
         
         //lvl3 score
         Score score_paper = scoreService.getPaperScoreById(id);
@@ -313,4 +313,73 @@ public class MainController {
         return json;  
     } 
     
+ // For Ajax to return all other information
+    @RequestMapping(value="/all",produces = { "application/json;charset=UTF-8" })  
+    @ResponseBody      	
+    public String  getAll(@RequestParam(value="college_name",required=false)String college_name){ 
+    	College college = collegeService.getCollegeByUserInput(college_name);
+    	int id = college.getCollegeId();
+    		System.out.println(id);
+		//Get DBinfo information for the given college
+        DBinfo db = dbinfoService.getDBinfoById(id);
+        String tablename = db.getDbName();
+        String paper_score_name = db.getPaperScoreName();
+        String patent_name = db.getDbPatentName();
+        System.out.println("paper table name: "+ tablename);
+        
+        AjaxInfo ajax = new AjaxInfo();
+        
+        // Get the subject information for the selected college
+        List<String> sub1_list = subjectService.getSubject1(tablename);
+        ajax.setSub1_list(sub1_list);
+        //model.addAttribute("table",tablename);
+        List<Subject> sub1_num_list = subjectService.getSub1Num(tablename);
+        ajax.setSub1_num_list(sub1_num_list);
+        
+       //Get score information for the college
+        Score score = scoreService.getScoreById(id); 
+        
+        //Get college rank information
+        int overall_rank = scoreService.getScoreOverallRank(id);
+        int city_rank = scoreService.getScoreCityRank(id);
+        score.setOverall_rank(overall_rank);
+        score.setCity_rank(city_rank);
+        score.setNumbers(scoreService.getNumbers());
+        score.setTalent_rank(scoreService.getTalentRank(id));
+        score.setPlatform_rank(scoreService.getPlatformRank(id));
+        score.setInput_rank(scoreService.getInputRank(id));
+        score.setPaper_rank(scoreService.getPaperRank(id));
+        score.setPrize_rank(scoreService.getPrizeRank(id));
+        score.setPatent_rank(scoreService.getPatentRank(id));
+        score.setTransform_rank(scoreService.getTransformRank(id));
+        score.setBasic_rank(scoreService.getBasicRank(id));
+        score.setOutput_rank(scoreService.getOutputRank(id));           
+        ajax.setScore(score);
+      
+        //lvl3 score
+        Score score_paper = scoreService.getPaperScoreById(id);
+        ajax.setScore_paper(score_paper);
+        
+        //Get score average information
+        Score score_avg = scoreService.getScoreAvg();
+        ajax.setScore_avg(score_avg);
+       
+        //Get talent information
+        Talent talent_org = talentService.getTalentById(id);
+        Talent talent_other = talentService.getOtherById(id);
+        Talent talent_paper = talentService.getPaperByName(paper_score_name);
+        Talent talent_patent = talentService.getPatentByName(patent_name);
+        ajax.setTalent_org(talent_org);
+        ajax.setTalent_other(talent_other);
+        ajax.setTalent_paper(talent_paper);
+        ajax.setTalent_patent(talent_patent);
+       
+        //Get talent information by year
+        List<Talent> talent_list_year = talentService.getPaperByYear(tablename, paper_score_name);
+        //String talent_list_year_json = new Gson().toJson(talent_list_year);
+    	ajax.setPaper_by_year(talent_list_year);
+        
+        String json = new Gson().toJson(ajax);
+        return json;  
+    } 
 }

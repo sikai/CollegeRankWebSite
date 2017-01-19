@@ -45,6 +45,7 @@ public interface ScoreMapper {
 			+ "FROM CollegeOverallScore")
 	public int getNumbers();
 	
+	
 	@Select("SELECT FIND_IN_SET( talent_score, (   "
 			+ "SELECT GROUP_CONCAT( talent_score "
 			+ "ORDER BY talent_score DESC ) "

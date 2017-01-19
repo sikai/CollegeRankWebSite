@@ -36,12 +36,12 @@ float: right;
 font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${student.emailAddress}  &nbsp; <a href="/webapptest/logoutSuccessful" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
-                <nav class="navbar-default navbar-side" role="navigation">
+          <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-				<li class="text-center">
-                    <img src="<c:url value="/resources/img/find_user.png" />" class="user-image img-responsive"/>
-					</li>
+          				<li class="text-center">
+                              <img src="<c:url value="/resources/img/find_user.png" />" class="user-image img-responsive"/>
+          					</li>
 				
 					
                     <li>
@@ -99,8 +99,8 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Admin Dashboard</h2>   
-                        <h5>Welcome ${username} , Love to see you back. </h5>
+                     <h2>功能导航</h2>   
+                        <h5>Welcome ${username} , 欢迎回来. </h5>
                     </div>
                 </div>    
                 
@@ -113,8 +113,9 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
 	                    以大数据为基础，提供全方位、多维度的科研能力综合评价、单项学科评价，及定制化报告下载，更全面地了解高校综合能力。             
 	                    </div>  
 	                  
-	                    <img src="<c:url value="/resources/img/b1.png" />" alt="User" class="col-md-4 imgCenter" style="position:absolute;bottom:5%;width:40%" />			
-			        </div>
+	                    <!--<img src="<c:url value="/resources/img/b1.png" />"  href="/webapptest/overall" alt="User" class="col-md-4 imgCenter" style="position:absolute;bottom:5%;width:40%" />		-->
+                       <a  href="/webapptest/overall" class="col-md-4 imgCenter" style="position:absolute;bottom:5%;width:40%" ><i class="fa fa-desktop fa-3x"></i> 综合能力 </a>	
+			            </div>
 	
 	                <div class="col-md-4 col-sm-6 col-xs-12">    
 	                   <img src="<c:url value="/resources/img/p2.png" />" alt="User" style="position: relative;width:100%" />    
@@ -122,8 +123,11 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
 	                    多种图表可视化数据分析，提供多所学校多项指标自定义对比，灵活了解高校间综合实力及单项学科的差距。             
 	                    </div>  
 	                    <!--<img src="assets/img/b2.png" class="col-md-4 center" style="position:absolute;left:25%;bottom:5%;width:40%">    -->                   
-	                    <img src="<c:url value="/resources/img/b2.png" />" alt="User" class="col-md-4 imgCenter" style="position:absolute;bottom:5%;width:40%" />
+	                    <!--<img src="<c:url value="/resources/img/b2.png" />" href="/webapptest/compare" alt="User" class="col-md-4 imgCenter" style="position:absolute;bottom:5%;width:40%" />-->
+                      <a  href="/webapptest/compare" class="col-md-4 imgCenter" style="position:absolute;bottom:5%;width:40%" ><i class="fa fa-qrcode fa-3x"></i> 交叉对比 </a>  
 	                </div>
+
+                  <!--
 	                
 	                <div class="col-md-4 col-sm-6 col-xs-12">    
 	                    <img src="<c:url value="/resources/img/p3.png" />" alt="User" style="position: relative;width:100%" />  
@@ -148,7 +152,9 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
 	                    庞大的高校科研能力数据库，提供一键式查询，为您提供实时更新的各项数据详情。        
 	                    </div>  
 	                    <img src="<c:url value="/resources/img/b5.png" />" alt="User" class="col-md-4 imgCenter" style="position:absolute;bottom:5%;width:40%" />
-	                </div>     
+	                </div>  
+
+                  -->   
                  </div>
                 
                 

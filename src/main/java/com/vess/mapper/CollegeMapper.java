@@ -40,7 +40,7 @@ public interface CollegeMapper {
 	public List<College> getCollegeByCity1(  @Param("college_city_lvl1") String college_city_lvl1);
 	
 	@Select("SELECT a.college_id as college_id, a.college_city_lvl1 as college_city_lvl1, "
-			+ "a.college_city_lvl2 as college_city_lvl1, a.college_title as college_title, "
+			+ "a.college_city_lvl2 as college_city_lvl2, a.college_title as college_title, "
 			+ "a.college_type as college_type, a.college_grade as college_grade  "
 			+ " FROM College a INNER JOIN DBinfo b ON a.college_id = b.college_id "
 			+ " WHERE a.college_title = #{college_name}")
