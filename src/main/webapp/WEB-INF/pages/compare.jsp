@@ -501,9 +501,9 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                   <!-- End of 3 pie chart-->
                   
                   <!--Start of 表格-->
-                  <div class="col-md-7 col-sm-7 col-xs-7" style="padding:0px; padding-right:4px;">
+                  <div class="col-md-6 col-sm-6 col-xs-6" style="padding:0px; padding-right:4px;">
                     <!--Start of 一级指标表格-->
-                    <div class="panel panel-default" style=" margin: 5px 10px 5px 15px;">
+                    <div class="panel panel-default" style=" margin: 5px 10px 5px 15px; height: 218px;">
                       <div class="panel-heading">
                             一级指标对比
                       </div>
@@ -539,8 +539,11 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                             </div>
                       </div>
                     </div>
-                    <!--End of 一级指标表格-->
+                  </div>
+                  <!--End of 一级指标表格-->
 
+
+                  <div class="col-md-6 col-sm-6 col-xs-6" style="padding:0px; padding-right:4px;">
                     <div class="panel panel-default" style=" margin: 5px 10px 5px 15px;">
                       <div class="panel-heading">
                             二级指标对比
@@ -592,46 +595,41 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                   </div>
                   <!--End of 表格-->
 
+                  <!--一级能力图-->
+                  <div class="col-md-6 col-sm-6 col-xs-6" style="padding:0px; padding-right:4px;">
+                    <div class="panel panel-default" style=" margin: 5px 10px 5px 15px;">
+                      <div class="panel-heading">
+                            一级指标能力图对比
+                      </div>
+                      <div class="panel-body" style="background-color:white; padding:0px; margin:2px;"> 
+                          <div id= "lvl1RadarChart" class="chart-container1" width: 100%></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--2级能力图-->
+                  <div class="col-md-6 col-sm-6 col-xs-6" style="padding:0px; padding-right:4px;">
+                    <div class="panel panel-default" style=" margin: 5px 10px 5px 15px;">
+                      <div class="panel-heading">
+                            二级指标能力图对比
+                      </div>
+                      <div class="panel-body" style="background-color:white; padding:0px; margin:2px;"> 
+                          <div id= "lvl2RadarChart" class="chart-container2" width: 100%></div>
+                      </div>
+                    </div>
+                  </div>
+
 
                 </div>
                 <!--College info kuang END-->
-
-               
-
-                <!-- /. ROW  -->
-
-                <div class="row" style="background-color: #d8d8d8 !important; margin:2px">
-                  
-
-                  <!--lvl1标准spider chart-->
-                  <div class="col-md-6">
-                      <div class="panel panel-default">  
-
-                          <p style="text-align: center" style="color: gray"> <b>一级标准评分</b></p>
-                          <div id= "lvl1RadarChart" class="chart-container1" width: 100%></div>
                            
-                      </div>
-                  </div>
-                  <!--lvl2标准spider chart-->
-                  <div class="col-md-6">
-                      <div class="panel panel-default">  
-
-                          <p style="text-align: center" style="color: gray"> <b>二级标准评分</b></p>
-                          <div id= "lvl2RadarChart" class="chart-container2" width: 100%></div>
-
-                      </div>
-                  </div>
-
-                </div>
-                
-                
                 <!-- /. ROW  -->
 
                 <div id="top" class="row">
                   <div class="col-md-12 col-sm-12">
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" style="margin:2px">
                         
-                        <div class="panel-body">
+                        <div class="panel-body"  style="background-color: #d8d8d8 !important;">
                             <div class="col-md-3"></div>
                             <ul class="nav nav-tabs">
                                 <li class="active"><a class="jumper" href="#home" data-toggle="tab">科研产出能力</a>
@@ -658,6 +656,14 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                             <!-- 科研产出能力-->
                             <div class="tab-content">
                               <div class="tab-pane fade active in" id="home">
+
+                                <div class="panel panel-default" style="margin:2px">
+                                    <div class="panel-body" style="background-image: url('resources/img/star_hd.jpg'); height: 150px; background-size:cover"> 
+                                      <img src="/webapptest/resources/img/s-icons_social_media_icons_white_color_transparent_background_64x64_0149_buffer.png" height="64" width="64" style="margin-left: 50%; transform: translate(-50%);">
+                                      <br>
+                                      <p style="text-align: center; font-size:26px; color:white">科研产出能力</p>
+                                    </div>
+                                </div>
                                 <!--general score-->
                                 <div class="row">
                                   <div class="col-md-3">
@@ -1994,6 +2000,9 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
 
        function updateThreePie(overall_score, overall_rank, city_rank, college_number){
 
+          $("#donut_overall_score_clg2").empty();
+          $("#donut_overall_rank_clg2").empty();
+          $("#donut_city_rank_clg2").empty();
           var data_new = [];
             
           data_new.push({
@@ -2362,6 +2371,7 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
 
        function updateLineChartpaperNum(data,data2,name1,name2){
             //var data = eval('('+'${paper_year_json}'+')'); 
+            $("#line_paper").empty();
             var data_new = [];
             for(var i=0;i<data.length;i++){
                 var obj = data[i];
@@ -2392,6 +2402,7 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
 
        function updateLineChartSCINum(data,data2,name1,name2){
             //var data = eval('('+'${paper_year_json}'+')'); 
+            $("#line_paper_sci").empty();
             var data_new = [];
             for(var i=0;i<data.length;i++){
                 var obj = data[i];
@@ -2426,6 +2437,7 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
 
        function updateLineChartPKUNum(data,data2,name1,name2){
             //var data = eval('('+'${paper_year_json}'+')'); 
+            $("#line_paper_pku").empty();
             var data_new = [];
             for(var i=0;i<data.length;i++){
                 var obj = data[i];
@@ -2463,6 +2475,7 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
        }
 
        function updateLineChartRefNum(data,data2,name1,name2){
+            $("#line_paper_ref").empty();
             var data_new = [];
             for(var i=0;i<data.length;i++){
                 var obj = data[i];
@@ -2491,7 +2504,10 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
             });
        }
 
-       function updateDonutChartSubject(data,data2,name1,name2){                                                      
+       function updateDonutChartSubject(data,data2,name1,name2){  
+        $("#bar_paper_sub").empty(); 
+        $("#donut_paper_sub_left").empty();  
+        $("#donut_paper_sub_right").empty();                                                 
         var sum1 = 0;
         for(var i=0;i<data.length;i++){
             sum1+=data[i].sub1_num;
@@ -2604,7 +2620,8 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
         });
        }
 
-       function updateBarTwo(data,data2,name1,name2,title,chart_id){  
+       function updateBarTwo(data,data2,name1,name2,title,chart_id){ 
+        $("#chart_id").empty();  
         var data3_new = [];
         data3_new.push({
           "x":title,
