@@ -135,7 +135,7 @@
                             <div class="panel panel-default" style="margin:2px">
                                 <div class="panel-body" style="background-color: #d8d8d8 !important;"> 
                                     <div class="panel panel-default" style="margin: 2px;">
-                                        <div class="panel-body" style="background-image: url('resources/img/top_bg.jpg'); height: 200px; background-size:cover"> 
+                                        <div class="panel-body" style="background-image: url('resources/img/star_hd.jpg'); height: 170px; background-size:cover"> 
                                           <img src="<c:url value="/resources/img/s-icons_social_media_icons_white_color_transparent_background_64x64_0149_buffer.png" />" height="64" width="64" style="margin-left: 50%; transform: translate(-50%);"/>
                                           <br>
                                           <p style="text-align: center; font-size:45px; color:white">${college.college_title}</p>
@@ -697,8 +697,8 @@
                                                          $("#paperSR").text(d+")");
                                                         </script>
 
-                                                  <div class="col-md-12 progress" style="padding-left: 0">
-                                                    <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="${paper_score.ref_score}" aria-valuemin="0" aria-valuemax="100" style="width: ${paper_score.ref_score}%">
+                                                  <div class="col-md-12 progress progress-striped active" style="padding-left: 0">
+                                                    <div class="progress-bar progress-bar-danger " role="progressbar" aria-valuenow="${paper_score.ref_score}" aria-valuemin="0" aria-valuemax="100" style="width: ${paper_score.ref_score}%">
                                                               
                                                    </div>  
                                                  </div>

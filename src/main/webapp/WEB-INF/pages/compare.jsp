@@ -122,15 +122,14 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
             <div id="page-inner">
                             
                 <!-- /. ROW  -->
-                <div class="row">
+                <div class="row" style="background-color: #d8d8d8 !important; margin:2px">
                   <p style="text-align: center" style="color: gray"> <b>请选择您想要进行对比的学校</b></p>
                 </div>
-                <hr>
 
                 <!-- /. ROW  -->
-                <div class="row">
+                <div class="row" style="background-color: #d8d8d8 !important; margin:2px">
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" style=" margin-top: 16px;">
                       <div class="panel-body">
                         <div class="col-md-6 col-sm-12 col-xs-12">
                           <p>省，直辖市：</p>
@@ -167,110 +166,442 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                   </div>
                 </div>
 
-                <!-- /. ROW  -->
-                <div class="row">
-                  <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="panel panel-default">
-                      <div class="panel-body">
-                        <div class="col-md-6 col-sm-12 col-xs-12">
-                          <h1 style="text-align: center" >${college.college_title}</h1> 
-                          <p style="text-align: center" style="color: gray">地区：${college.getCollegeCityLvl2()}<br>属性：${college.getCollegeType()}  ${college.getCollegeGrade()}</p>
-
-                        </div>
-
-                        <div class="col-md-6 col-sm-12 col-xs-12">
-                          <h1 id="college_compare_title" style="text-align: center" ></h1> 
-                          <p id="college_compare_city" style="text-align: center" style="color: gray"></p>
-                          <p id="college_compare_type" style="text-align: center" style="color: gray"></p>
-
-                        </div>
-
-             
+                <!--College info kuang-->
+                <div class="row" style="background-color: #d8d8d8 !important; margin:2px">
+                  <div class="col-md-6 col-sm-6 col-xs-6" style="margin-top: 15px; padding-right: 6px;">
+                    <div class="panel panel-default" style="margin-bottom: 10px;">
+                      <div class="panel-body"  style="background-image: url('resources/img/star_hd.jpg'); height: 130px; background-size:cover">
+                           <img src="<c:url value="/resources/img/s-icons_social_media_icons_white_color_transparent_background_64x64_0149_buffer.png" />" height="64" width="64" style="margin-left: 50%; transform: translate(-50%);"/>
+                           <p style="text-align: center; font-size:26px; color:white; padding-top: 2px;"><strong>${college.college_title}</strong></p>
                       </div>
-
-                      <!--综合频分-->
-                      <div class="panel-body"> 
-                        <div class="col-md-6 col-sm-6 col-xs-6">           
-                            <div class="panel panel-back noti-box" style="height: 120px">
-                                <span class="icon-box bg-color-green set-icon">
-                                    <!--<i class="fa fa-bars"></i>-->
-                                    <p class="main-text" style="text-align: center" style="color: red" >${score.overall_score}</p>
-                                </span>
-                                <div class="text-box" >
-                                    <p class="main-text" style="text-align: center" >综合评分</p>
-                                </div>
-                             </div>
-                         </div>
-
-                         <div class="col-md-6 col-sm-6 col-xs-6">           
-                            <div class="panel panel-back noti-box" style="height: 120px">
-                                <span class="icon-box bg-color-red set-icon">
-                                    <!--<i class="fa fa-bars"></i>-->
-                                    <p id="overall_score" class="main-text" style="text-align: center" style="color: red" ></p>
-                                </span>
-                                <div class="text-box" >
-                                    <p class="main-text" style="text-align: center" >综合评分</p>
-                                </div>
-                             </div>
-                         </div>
-                      </div>
-
-                      <!--全国排名-->
-                      <div class="panel-body"> 
-                        <div class="col-md-6 col-sm-6 col-xs-6">           
-                            <div class="panel panel-back noti-box" style="height: 120px">
-                                <span class="icon-box bg-color-green set-icon">
-                                    <!--<i class="fa fa-bars"></i>-->
-                                    <p class="main-text" style="text-align: center" style="color: red" >${score.overall_rank}</p>
-                                </span>
-                                <div class="text-box" >
-                                    <p class="main-text" style="text-align: center" >在全国所有高校中排名</p>
-                                </div>
-                             </div>
-                         </div>
-
-                         <div class="col-md-6 col-sm-6 col-xs-6">           
-                            <div class="panel panel-back noti-box" style="height: 120px">
-                                <span class="icon-box bg-color-red set-icon">
-                                    <!--<i class="fa fa-bars"></i>-->
-                                    <p id="overall_rank" class="main-text" style="text-align: center" style="color: red" ></p>
-                                </span>
-                                <div class="text-box" >
-                                    <p class="main-text" style="text-align: center" >在全国所有高校中排名</p>
-                                </div>
-                             </div>
-                         </div>
-                      </div>
-
-                      <!--地区排名-->
-                      <div class="panel-body"> 
-                        <div class="col-md-6 col-sm-6 col-xs-6">           
-                            <div class="panel panel-back noti-box" style="height: 120px">
-                                <span class="icon-box bg-color-green set-icon">
-                                    <!--<i class="fa fa-bars"></i>-->
-                                    <p class="main-text" style="text-align: center" style="color: red" >${score.city_rank}</p>
-                                </span>
-                                <div class="text-box" >
-                                    <p class="main-text" style="text-align: center" >在${college.getCollegeCityLvl2()}地区的所有高校中排名</p>
-                                </div>
-                             </div>
-                         </div>
-
-                         <div class="col-md-6 col-sm-6 col-xs-6">           
-                            <div class="panel panel-back noti-box" style="height: 120px">
-                                <span class="icon-box bg-color-red set-icon">
-                                    <!--<i class="fa fa-bars"></i>-->
-                                    <p id="city_rank" class="main-text" style="text-align: center" style="color: red" ></p>
-                                </span>
-                                <div class="text-box" >
-                                    <p id="city_lvl2_2" class="main-text" style="text-align: center" >在  地区的所有高校中排名</p>
-                                </div>
-                             </div>
-                         </div>
-                      </div>
-
                     </div>
                   </div>
+                  <!--college1 end-->
+                  <div class="col-md-6 col-sm-6 col-xs-6" style="margin-top: 15px; padding-left: 6px;">
+                    <div class="panel panel-default" style="margin-bottom: 10px;">
+                      <div class="panel-body"  style="background-image: url('resources/img/star_hd.jpg'); height: 130px; background-size:cover">
+                          <img src="<c:url value="/resources/img/s-icons_social_media_icons_white_color_transparent_background_64x64_0149_buffer.png" />" height="64" width="64" style="margin-left: 50%; transform: translate(-50%);"/>
+                          <p id="college_compare_title" style="text-align: center; font-size:26px; color:white; padding-top: 2px;"></p> 
+                      </div>
+                    </div>
+                  </div>
+                  <!--省市城市-->
+                  <div class="col-md-3 col-sm-3 col-xs-3"> <!--college1 省市-->
+                    <div class="panel panel-default" style="margin-bottom: 10px;">
+                      <div class="panel-body"  style="background-color:white; padding:5px ;margin: 2px;">
+                          <div class='col-md-3' style=" padding: 0;">
+                            <img src="<c:url value="/resources/img/worldwide.png" />" height="42" width="42" />
+                            </br>
+                            <span style="color: black; font-size: 13px; margin-left: 13%; "> <strong>省市</strong></span>    
+                          </div>
+
+                          <div class='col-md-9' style="padding:0">
+                              <p style="color: black;font-size: 26px;text-align: center;"> <strong>${college.getCollegeCityLvl1()}</strong></p> 
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3 col-sm-3 col-xs-3"> <!--college1 城市-->
+                    <div class="panel panel-default" style="margin-bottom: 10px;">
+                      <div class="panel-body"  style="background-color:white; padding:5px ;margin: 2px;">
+                          <div class='col-md-3' style=" padding: 0;">
+                            <img src="<c:url value="/resources/img/business.png" />" height="42" width="42" />
+                            </br>
+                            <span style="color: black; font-size: 13px; margin-left: 13%; "> <strong>城市</strong></span>    
+                          </div>
+
+                          <div class='col-md-9' style="padding:0">
+                              <p style="color: black;font-size: 26px;text-align: center;"> <strong>${college.getCollegeCityLvl2()}</strong></p> 
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3 col-sm-3 col-xs-3"> <!--college2 省市-->
+                    <div class="panel panel-default" style="margin-bottom: 10px;">
+                      <div class="panel-body"  style="background-color:white; padding:5px ;margin: 2px;">
+                          <div class='col-md-3' style=" padding: 0;">
+                            <img src="<c:url value="/resources/img/worldwide.png" />" height="42" width="42" />
+                            </br>
+                            <span style="color: black; font-size: 13px; margin-left: 13%; "> <strong>省市</strong></span>    
+                          </div>
+
+                          <div id="college_compare_city1" class='col-md-9' style="padding:0">
+                               
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3 col-sm-3 col-xs-3"> <!--college2 城市-->
+                    <div class="panel panel-default" style="margin-bottom: 10px;">
+                      <div class="panel-body"  style="background-color:white; padding:5px ;margin: 2px;">
+                          <div class='col-md-3' style=" padding: 0;">
+                            <img src="<c:url value="/resources/img/business.png" />" height="42" width="42" />
+                            </br>
+                            <span style="color: black; font-size: 13px; margin-left: 13%; "> <strong>城市</strong></span>    
+                          </div>
+
+                          <div id="college_compare_city" class='col-md-9' style="padding:0">
+            
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--级别层次-->
+                  <div class="col-md-3 col-sm-3 col-xs-3"> <!--college1 层次-->
+                    <div class="panel panel-default" style="margin-bottom: 10px;">
+                      <div class="panel-body"  style="background-color:white; padding:5px ;margin: 2px;">
+                          <div class='col-md-3' style=" padding: 0;">
+                            <img src="<c:url value="/resources/img/graphic.png" />" height="42" width="42" />
+                            </br>
+                            <span style="color: black; font-size: 13px; margin-left: 13%; "> <strong>层次</strong></span>    
+                          </div>
+
+                          <div class='col-md-9' style="padding:0">
+                              <p style="color: black;font-size: 26px;text-align: center;"> <strong>${college.getCollegeType()}</strong></p> 
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3 col-sm-3 col-xs-3"> <!--college1 类型-->
+                    <div class="panel panel-default" style="margin-bottom: 10px;">
+                      <div class="panel-body"  style="background-color:white; padding:5px ;margin: 2px;">
+                          <div class='col-md-3' style=" padding: 0;">
+                            <img src="<c:url value="/resources/img/circle.png" />" height="42" width="42" />
+                            </br>
+                            <span style="color: black; font-size: 13px; margin-left: 13%; "> <strong>类型</strong></span>    
+                          </div>
+
+                          <div class='col-md-9' style="padding:0">
+                              <p style="color: black;font-size: 26px;text-align: center;"> <strong>${college.getCollegeGrade()}</strong></p> 
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3 col-sm-3 col-xs-3"> <!--college2 类型-->
+                    <div class="panel panel-default" style="margin-bottom: 10px;">
+                      <div class="panel-body"  style="background-color:white; padding:5px ;margin: 2px;">
+                          <div class='col-md-3' style=" padding: 0;">
+                            <img src="<c:url value="/resources/img/graphic.png" />" height="42" width="42" />
+                            </br>
+                            <span style="color: black; font-size: 13px; margin-left: 13%; "> <strong>层次</strong></span>    
+                          </div>
+
+                          <div id="college_compare_type" class='col-md-9' style="padding:0">
+                    
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3 col-sm-3 col-xs-3"> <!--college2 类型-->
+                    <div class="panel panel-default" style="margin-bottom: 10px;">
+                      <div class="panel-body"  style="background-color:white; padding:5px ;margin: 2px;">
+                          <div class='col-md-3' style=" padding: 0;">
+                            <img src="<c:url value="/resources/img/circle.png" />" height="42" width="42" />
+                            </br>
+                            <span style="color: black; font-size: 13px; margin-left: 13%; "> <strong>类型</strong></span>    
+                          </div>
+
+                          <div id="college_compare_grade" class='col-md-9' style="padding:0">
+                            
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-sm-6 col-xs-6" style="padding:0px; padding-right:4px;"><!--college1 三个饼-->
+                    <div class="panel panel-default" style=" margin: 5px 10px 5px 15px;">
+                      <div class="panel-body" style="background-color:white; padding:0px; margin:2px; height:240px"> 
+                        <div class="col-md-4 col-sm-4 col-xs-4" style="height:160px;padding:0px;padding-top: 20px"> <!--donut1-->
+                            <div id="donut_overall_score" style="height:150px"></div>
+                               <script>   
+                                    var data_new = [];
+                                      
+                                    data_new.push({
+                                        "label":"综合评分",
+                                        "value":${score.overall_score}.toFixed(2)
+                                    });
+
+                                    data_new.push({
+                                        "label":"距榜首差距",
+                                        "value":100-${score.overall_score}.toFixed(2)
+                                    });
+
+                                    Morris.Donut({
+                                      element: 'donut_overall_score',
+                                      data: data_new,
+                                      resize: true,
+                                      backgroundColor: '#ccc',
+                                      labelColor: '#000000',
+                                      colors: [
+                                        //'#0BA462',
+                                        '#f0ad4e',
+                                        '#ccc'
+                                      ]   
+                                    });
+                                </script> 
+                        </div> 
+
+                        <div class="col-md-4 col-sm-4 col-xs-4" style="height:160px;padding:0px;padding-top: 20px"> <!--donut2-->
+                            <div id="donut_overall_rank" style="height:150px"></div>
+                                <script>   
+                                    var data_new = [];
+                                      
+                                    data_new.push({
+                                        "label":"全国排名",
+                                        "value":${score.overall_rank}
+                                    });
+
+                                    data_new.push({
+                                        "label":"超越高校数量",
+                                        "value": ${score.numbers}-${score.overall_rank}
+                                    });
+
+                                    Morris.Donut({
+                                      element: 'donut_overall_rank',
+                                      data: data_new,
+                                      resize: true,
+                                      backgroundColor: '#ccc',
+                                      labelColor: '#000000',
+                                      colors: [
+                                        //'#0BA462',
+                                        '#5cb85c',
+                                        '#ccc'
+                                      ]   
+                                    });
+                                </script>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-xs-4" style="height:160px;padding:0px;padding-top: 20px"> <!--donut3-->
+                            <div id="donut_city_rank" style="height:150px"></div>
+                                <script>   
+                                    var data_new = [];
+                                      
+                                    data_new.push({
+                                        "label":"地区排名",
+                                        "value":${score.city_rank}
+                                    });
+
+                                    data_new.push({
+                                        "label":"超越高校数量",
+                                        "value": ${score.numbers}-${score.city_rank}
+                                    });
+
+                                    Morris.Donut({
+                                      element: 'donut_city_rank',
+                                      data: data_new,
+                                      resize: true,
+                                      backgroundColor: '#ccc',
+                                      labelColor: '#000000',
+                                      colors: [
+                                        //'#0BA462',
+                                        '#d9534f',
+                                        '#ccc'
+                                      ]   
+                                    });
+                                </script>
+                        </div>
+
+                         <!--progress bar-->
+                         <div class="col-md-4 col-sm-4 col-xs-4" style="padding-top: 30px;">  
+                            <div class="progress progress-striped active" style="background-color: #ccc">
+                              <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="${score.overall_score}" aria-valuemin="0" aria-valuemax="100" style="width: ${score.overall_score}%">
+                                <span class="sr-only">${score.overall_score} Complete (success)</span>
+                              </div>
+                            </div>
+                         </div>
+
+                         <div class="col-md-4 col-sm-4 col-xs-4" style="padding-top: 30px;">  
+                            <div class="progress progress-striped active" style="background-color: #ccc">
+                              <div id="prgs_bar_2" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="${score.numbers}-${score.overall_rank}" aria-valuemin="0" aria-valuemax="${score.numbers}" style="width: (${score.numbers}-${score.overall_rank})/%">
+                                  <script type="text/javascript">
+                                   var a =  ${score.numbers}-${score.overall_rank};
+                                   var b =  ${score.numbers};
+                                   var c = (a/b) * 100; 
+                                   var d = c.toFixed(2);   
+                                   console.log(d);
+                                   $("#prgs_bar_2").attr('style',"width: "+d+"%");
+                                  </script>
+                                <span class="sr-only">${score.overall_rank} Complete (success)</span>
+                              </div>
+                            </div>
+                         </div>
+
+                         <div class="col-md-4 col-sm-4 col-xs-4" style="padding-top: 30px;">  
+                            <div class="progress progress-striped active" style="background-color: #ccc">
+                              <div id= "prgs_bar_3" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="${score.city_rank}" aria-valuemin="0" aria-valuemax="100" style="width: (${score.numbers}-${score.city_rank})%">
+
+                                  <script type="text/javascript">
+                                   var a =  ${score.numbers}-${score.city_rank};
+                                   var b =  ${score.numbers};
+                                   var c = (a/b) * 100; 
+                                   var d = c.toFixed(2);   
+                                   console.log(d);
+                                   $("#prgs_bar_3").attr('style',"width: "+d+"%");
+                                  </script>
+
+                                <span class="sr-only">${score.overall_score} Complete (success)</span>
+                              </div>
+                            </div>
+                         </div>
+                         <!--End of progress bar -->
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--college2 三个饼-->
+                  <div class="col-md-6 col-sm-6 col-xs-6" style="padding:0px; padding-right:4px;">
+                    <div class="panel panel-default" style=" margin: 5px 10px 5px 15px;">
+                      <div class="panel-body" style="background-color:white; padding:0px; margin:2px; height:240px"> 
+                        <div class="col-md-4 col-sm-4 col-xs-4" style="height:160px;padding:0px;padding-top: 20px"> <!--donut1-->
+                            <div id="donut_overall_score_clg2" style="height:150px"></div>
+                                
+                        </div> 
+
+                        <div class="col-md-4 col-sm-4 col-xs-4" style="height:160px;padding:0px;padding-top: 20px"> <!--donut2-->
+                            <div id="donut_overall_rank_clg2" style="height:150px"></div>
+                                
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-xs-4" style="height:160px;padding:0px;padding-top: 20px"> <!--donut3-->
+                            <div id="donut_city_rank_clg2" style="height:150px"></div>
+                                
+                        </div>
+
+                         <!--progress bar-->
+                         <div class="col-md-4 col-sm-4 col-xs-4" style="padding-top: 30px;">  
+                            <div id="progress_bar_clg2_1" class="progress progress-striped active" style="background-color: #ccc">
+                              
+                            </div>
+                         </div>
+
+                         <div class="col-md-4 col-sm-4 col-xs-4" style="padding-top: 30px;">  
+                            <div id="progress_bar_clg2_2" class="progress progress-striped active" style="background-color: #ccc">
+
+                            </div>
+                         </div>
+
+                         <div class="col-md-4 col-sm-4 col-xs-4" style="padding-top: 30px;">  
+                            <div id="progress_bar_clg2_3" class="progress progress-striped active" style="background-color: #ccc">
+
+                            </div>
+                         </div>
+                         <!--End of progress bar -->
+
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End of 3 pie chart-->
+                  
+                  <!--Start of 表格-->
+                  <div class="col-md-7 col-sm-7 col-xs-7" style="padding:0px; padding-right:4px;">
+                    <!--Start of 一级指标表格-->
+                    <div class="panel panel-default" style=" margin: 5px 10px 5px 15px;">
+                      <div class="panel-heading">
+                            一级指标对比
+                      </div>
+                      <div class="panel-body" style="background-color:white; padding:0px; margin:2px;"> 
+                          <div class="table">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>基础能力</th>
+                                            <th>投入能力</th>
+                                            <th>产出能力</th>
+                                            <th>综合能力</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="success">
+                                            <td>${college.college_title}</td>
+                                            <td>${score.basic_score}</td>
+                                            <td>${score.input_score}</td>
+                                            <td>${score.output_score}</td>
+                                            <td>${score.overall_score}</td>
+                                        </tr>
+                                        <tr class="info">
+                                            <td id="table_clg2_name"></td>
+                                            <td id="table_clg2_basic"></td>
+                                            <td id="table_clg2_input"></td>
+                                            <td id="table_clg2_output"></td>
+                                            <td id="table_clg2_overall"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                      </div>
+                    </div>
+                    <!--End of 一级指标表格-->
+
+                    <div class="panel panel-default" style=" margin: 5px 10px 5px 15px;">
+                      <div class="panel-heading">
+                            二级指标对比
+                      </div>
+                      <div class="panel-body" style="background-color:white; padding:0px; margin:2px;"> 
+                          <div class="table">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>人才资源</th>
+                                            <th>科研平台</th>
+                                            <th>投入能力</th>
+                                            <th>论文质量</th>
+                                            <th>获奖情况</th>
+                                            <th>知识产权</th>
+                                            <th>成果转化</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="success">
+                                            <td>${college.college_title}</td>
+                                            <td>${score.talent_score}</td>
+                                            <td>${score.platform_score}</td>
+                                            <td>${score.input_score}</td>
+                                            <td>${score.paper_score}</td>                                           
+                                            <td>${score.prize_score}</td>
+                                            <td>${score.patent_score}</td>
+                                            <td>${score.transform_score}</td>
+                                        </tr>
+                                        <tr class="info">
+                                            <td id="table_clg2_name_2"></td>
+                                            <td id="table_clg2_talent"></td>
+                                            <td id="table_clg2_platform"></td>
+                                            <td id="table_clg2_input_2"></td>
+                                            <td id="table_clg2_paper"></td>
+                                            <td id="table_clg2_prize"></td>
+                                            <td id="table_clg2_patent"></td>
+                                            <td id="table_clg2_transform"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                      </div>
+                    </div>
+                    <!--End of 2级指标表格-->
+
+
+                  </div>
+                  <!--End of 表格-->
+
+
+                </div>
+                <!--College info kuang END-->
+
+               
+
+                <!-- /. ROW  -->
+
+                <div class="row" style="background-color: #d8d8d8 !important; margin:2px">
+                  
 
                   <!--lvl1标准spider chart-->
                   <div class="col-md-6">
@@ -999,6 +1330,7 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
 
       //声明全局变量
       var college_compare_name;
+      var college_compare_city1;
       var college_compare_city;
       var college_compare_type;
       var college_compare_grade;
@@ -1172,12 +1504,14 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                 success:function(msg)
                 {
                     var data = msg;
+                    console.log(msg);
                     college_compare_name = data.college_title;
+                    college_compare_city1 = data.college_city_lvl1;
                     college_compare_city = data.college_city_lvl2;
                     college_compare_type = data.college_type;
                     college_compare_grade = data.college_grade;
-                     alert(college_compare_name);
-                     updatePageHead(college_compare_name, college_compare_city, college_compare_type, college_compare_grade); 
+                     //alert(college_compare_name);
+                     updatePageHead(college_compare_name, college_compare_city, college_compare_city1, college_compare_type, college_compare_grade);
 
                      //Update all Ajax Info
                       $.ajax({
@@ -1195,7 +1529,11 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                       {
                            var data = msg;
                            var college_name_left = "${college.college_title}";
-                           updateScoreHead(data.score.overall_score, data.score.overall_rank, data.score.city_rank, college_compare_city);
+                           //updateScoreHead(data.score.overall_score, data.score.overall_rank, data.score.city_rank, college_compare_city);
+                           var college_number = ${score.numbers};
+                           updateThreePie(data.score.overall_score, data.score.overall_rank, data.score.city_rank, college_number);
+                           updateProgressBar(data.score.overall_score, data.score.overall_rank, data.score.city_rank, college_number);
+                           
 
                           //Update lvl1 socre donut chart
                            var input_score1 = ${score.input_score};
@@ -1221,14 +1559,9 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                            var transform_score1 = ${score.transform_score};
                    
                        
+                           updateTable1(college_compare_name, data.score.basic_score, data.score.input_score, data.score.output_score, data.score.overall_score);
+                           updateTable2(college_compare_name,talent_score,platform_score,input_score,paper_score,prize_score,patent_score,transform_score);
 
-                           //var talent_avg = data.score_avg.talent_avg;
-                           //var platform_avg = data.score_avg.platform_avg;
-                           //var input_avg = data.score_avg.input_avg;
-                           //var paper_avg = data.score_avg.paper_avg;
-                           //var prize_avg = data.score_avg.prize_avg;
-                           //var patent_avg = data.score_avg.patent_avg;
-                           //var transform_avg = data.score_avg.transform_avg; 
                            updateDonutChartLvl2(talent_score,platform_score,input_score,paper_score,prize_score,patent_score,transform_score,talent_score1,platform_score1,input_score1,paper_score1,prize_score1,patent_score1,transform_score1,college_name_left,college_compare_name);
 
                           //Update tab1 box1
@@ -1401,9 +1734,11 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                 alert(data.college_title);
                 college_compare_name = data.college_title;
                 college_compare_city = data.college_city_lvl2;
+                college_compare_city1 = data.college_city_lvl1;
                 college_compare_type = data.college_type;
                 college_compare_grade = data.college_grade;
-                updatePageHead(college_compare_name, college_compare_city, college_compare_type, college_compare_grade);
+                updatePageHead(college_compare_name, college_compare_city, college_compare_city1, college_compare_type, college_compare_grade);
+  
 
                 //Update all Ajax Info
                 $.ajax({
@@ -1421,7 +1756,11 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                   {
                       var data = msg;
                       var college_name_left = "${college.college_title}";
-                      updateScoreHead(data.score.overall_score, data.score.overall_rank, data.score.city_rank, college_compare_city);
+                      //updateScoreHead(data.score.overall_score, data.score.overall_rank, data.score.city_rank, college_compare_city);
+                      var college_number = ${score.numbers};
+                      updateThreePie(data.score.overall_score, data.score.overall_rank, data.score.city_rank, college_number);
+                      updateProgressBar(data.score.overall_score, data.score.overall_rank, data.score.city_rank, college_number);
+                      updateTable1(college_compare_name, data.score.basic_score, data.score.input_score, data.score.output_score, data.score.overall_score);
 
                     //Update lvl1 socre donut chart
                      var input_score1 = ${score.input_score};
@@ -1445,6 +1784,8 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                      var prize_score1 = ${score.prize_score};
                      var patent_score1 = ${score.patent_score};
                      var transform_score1 = ${score.transform_score};
+
+                     updateTable2(college_compare_name,talent_score,platform_score,input_score,paper_score,prize_score,patent_score,transform_score);
              
                  
 
@@ -1597,11 +1938,14 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
           //return false;
         });
 
-       function updatePageHead(college_compare_name, college_compare_city, college_compare_type, college_compare_grade){
+       function updatePageHead(college_compare_name, college_compare_city, college_compare_city1, college_compare_type, college_compare_grade){
         //Update college compare title, city and type
-        $("#college_compare_title").text(college_compare_name);
-        $("#college_compare_city").text("地区："+ college_compare_city );
-        $("#college_compare_type").text("属性："+college_compare_type + college_compare_grade);      
+        
+        $("#college_compare_title").html('<p style="text-align: center; font-size:26px; color:white; padding-top: 2px;"><strong>'+college_compare_name+'</strong></p> ');
+        $("#college_compare_city").html('<p style="color: black;font-size: 26px;text-align: center;"> <strong>'+college_compare_city+'</strong></p> ');
+        $("#college_compare_city1").html('<p style="color: black;font-size: 26px;text-align: center;"> <strong>'+college_compare_city1+'</strong></p> ');
+        $("#college_compare_type").html('<p style="color: black;font-size: 26px;text-align: center;"> <strong>'+college_compare_type+'</strong></p> ');
+        $("#college_compare_grade").html('<p style="color: black;font-size: 26px;text-align: center;"> <strong>'+college_compare_grade+'</strong></p> ');    
        }
 
        function updateScoreHead(overall_score, overall_rank, city_rank, college_compare_city){
@@ -1610,6 +1954,122 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
         $("#overall_rank").text(overall_rank); 
         $("#city_rank").text(city_rank); 
         $("#city_lvl2_2").text("在"+college_compare_city+"地区的所有高校中排名");     
+       }
+
+       function updateTable1(clg2_name,basic_score,input_score,output_score,overall_score){
+         $("#table_clg2_name"). text(clg2_name);
+         $("#table_clg2_basic"). text(basic_score);
+         $("#table_clg2_input"). text(input_score);
+         $("#table_clg2_output"). text(output_score);
+         $("#table_clg2_overall"). text(overall_score);
+
+       }
+
+       function updateTable2(clg2_name,talent_score,platform_score,input_score,paper_score,prize_score,patent_score,transform_score){
+         $("#table_clg2_name_2"). text(clg2_name);
+         $("#table_clg2_talent"). text(talent_score);
+         $("#table_clg2_platform"). text(platform_score);
+         $("#table_clg2_input_2"). text(input_score);
+         $("#table_clg2_paper"). text(paper_score);
+         $("#table_clg2_prize"). text(prize_score);
+         $("#table_clg2_patent"). text(patent_score);
+         $("#table_clg2_transform"). text(transform_score);
+
+       }
+
+       function updateProgressBar(overall_score, overall_rank, city_rank, college_number){
+          $("#progress_bar_clg2_1").html('<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="'+overall_score+'" aria-valuemin="0" aria-valuemax="100" style="width: '+overall_score+'%"></div>');
+            var a =  college_number-overall_rank;
+            var b =  college_number;
+            var c = (a/b) * 100; 
+            var d = c.toFixed(2);   
+          $("#progress_bar_clg2_2").html('<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'+d+'" aria-valuemin="0" aria-valuemax="100" style="width: '+d+'%"></div>');
+
+            var e =  college_number-city_rank;
+            var f = (e/b) * 100; 
+            var g = f.toFixed(2);   
+          $("#progress_bar_clg2_3").html('<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'+g+'" aria-valuemin="0" aria-valuemax="100" style="width: '+g+'%"></div>');
+                                         
+       }
+
+       function updateThreePie(overall_score, overall_rank, city_rank, college_number){
+
+          var data_new = [];
+            
+          data_new.push({
+              "label":"综合评分",
+              "value":overall_score.toFixed(2)
+          });
+
+          data_new.push({
+              "label":"距榜首差距",
+              "value":100-overall_score.toFixed(2)
+          });
+
+          Morris.Donut({
+            element: 'donut_overall_score_clg2',
+            data: data_new,
+            resize: true,
+            backgroundColor: '#ccc',
+            labelColor: '#000000',
+            colors: [
+              //'#0BA462',
+              '#f0ad4e',
+              '#ccc'
+            ]   
+          });
+
+          data_new = [];
+            
+          data_new.push({
+              "label":"全国排名",
+              "value":overall_rank
+          });
+
+          data_new.push({
+              "label":"超越高校数量",
+              "value": college_number-overall_rank
+          });
+
+          Morris.Donut({
+            element: 'donut_overall_rank_clg2',
+            data: data_new,
+            resize: true,
+            backgroundColor: '#ccc',
+            labelColor: '#000000',
+            colors: [
+              //'#0BA462',
+              '#5cb85c',
+              '#ccc'
+            ]   
+          });
+
+          data_new = [];
+            
+          data_new.push({
+              "label":"地区排名",
+              "value":city_rank
+          });
+
+          data_new.push({
+              "label":"超越高校数量",
+              "value": college_number-city_rank
+          });
+
+          Morris.Donut({
+            element: 'donut_city_rank_clg2',
+            data: data_new,
+            resize: true,
+            backgroundColor: '#ccc',
+            labelColor: '#000000',
+            colors: [
+              //'#0BA462',
+              '#d9534f',
+              '#ccc'
+            ]   
+          });
+
+                              
        }
 
        function updateDonutChartLvl1(basic_score,input_score,output_score,overall_score,basic_1,input_1,output_1,overall_1,clg1,clg2){
