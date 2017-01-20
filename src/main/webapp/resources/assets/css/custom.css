@@ -476,4 +476,31 @@ line-height: 1.428571429;
   color: white;
 }
 
+.col-5piece {
+  width: 19%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  height:220px;
+  background-color: #374354;
+  color: wheat;
+  margin:5px;
+}
+
+
+.btn-circle-2 {
+	width: 80px;
+    height: 80px;
+    padding: 6px 0;
+    -webkit-border-radius: 80px;
+    -moz-border-radius: 80px;
+    border-radius: 80px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.428571429;
+    font-size:20px;
+}
+
 
