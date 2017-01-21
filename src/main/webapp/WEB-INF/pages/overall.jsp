@@ -65,6 +65,8 @@
     <script src="<c:url value="/resources/js/custom.js" />"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+    <script src="<c:url value="/resources/js/html2canvas.js" />"></script>
+    
     
  
 
@@ -106,16 +108,16 @@
                 
                     
                     <li>
-                        <a  href="/webapptest/dashb"><i class="fa fa-dashboard fa-3x"></i> 首页</a>
+                        <a  href="/webapptest/userInfo"><i class="fa fa-dashboard fa-3x" style="width:42px"></i> 首页</a>
                     </li>
                       <li>
-                        <a class="active-menu"><i class="fa fa-desktop fa-3x"></i> 综合能力</a>
+                        <a class="active-menu"><i class="fa fa-desktop fa-3x" style="width:42px"></i> 综合能力</a>
                     </li>
                     <li>
-                        <a  href="/webapptest/compare"><i class="fa fa-qrcode fa-3x"></i> 交叉对比</a>
+                        <a  href="/webapptest/compare"><i class="fa fa-qrcode fa-3x" style="width:42px"></i> 交叉对比</a>
                     </li>
                     <li  >
-                        <a  href="form.html"><i class="fa fa-edit fa-3x"></i> 联系我们 </a>
+                        <a  href="form.html"><i class="fa fa-edit fa-3x" style="width:42px"></i> 联系我们 </a>
                     </li>               
           
                 </ul>
@@ -650,13 +652,15 @@
                                     <div class="tab-pane fade active in" id="home">
                                         <hr>
 
-                                        <div class="panel panel-default" style="margin:2px">
-                                            <div class="panel-body" style="background-image: url('resources/img/wood1.jpg'); height: 150px; background-size:cover"> 
-                                              <img src="/webapptest/resources/img/s-icons_social_media_icons_white_color_transparent_background_64x64_0149_buffer.png" height="64" width="64" style="margin-left: 50%; transform: translate(-50%);">
-                                              <br>
-                                              <p style="text-align: center; font-size:26px; color:white">科研产出能力</p>
+                                      <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                          <div class="panel panel-default">
+                                            <div class="panel-body" style=" padding: 0px;">
+                                                <p style="text-align: center" style="color: gray"> <b>科研平台</b></p>
                                             </div>
+                                          </div>
                                         </div>
+                                      </div>
 
 
                                        
@@ -763,10 +767,9 @@
 
 
                                           <div class="col-md-4">
-                                              <div class="col-md-4">
+                                              <div class="col-md-4" style="padding-top: 13px;">
 
                                                 <img src="<c:url value="/resources/img/diploma.png" />" class="imgCenter"/>
-                                                <br><br><br>
                                                 <p class="centerT" style="padding-top:0px">科研专利数量</p>
                                                 <p class="btn3" style="background-color: ##65300">${talent_patent.patent_num}项</p> 
 
@@ -800,7 +803,7 @@
 
                                                   <div class="row centerT">
                                                       
-                                                          <button type="button" class="btn btn-warning btn-circle btn-xl">${score.patent_rank}</button>
+                                                          <button type="button" class="btn btn-warning btn-circle btn-xl" style="font-size: 26px;"><strong>${score.patent_rank}</strong></button>
                                                           <br> 在所有${score.numbers} 所高校中排名
                                                     
                                                   </div>
@@ -811,10 +814,9 @@
                                           </div>
                                           <div class="col-md-4">
 
-                                              <div class="col-md-4">
+                                              <div class="col-md-4" style="padding-top: 13px;">
 
                                                 <img src="<c:url value="/resources/img/badge.png" />" class="imgCenter"/>
-                                                <br><br><br>
                                                 <p class="centerT" style="padding-top:0px">国家级奖项数量</p>
                                                 <p class="btn3" style="background-color: ##65300">${talent.total_prize_num}项</p> 
 
@@ -853,7 +855,7 @@
 
                                                   <div class="row centerT">
                                                       
-                                                          <button type="button" class="btn btn-warning btn-circle btn-xl">${score.prize_rank}</button>
+                                                          <button type="button" class="btn btn-warning btn-circle btn-xl" style="font-size: 26px;"><strong>${score.prize_rank}</strong></button>
                                                           <br> 在所有${score.numbers} 所高校中排名
                                                     
                                                   </div>
@@ -865,12 +867,16 @@
 
 
                                           <div class="col-md-4">
-                                              <div class="col-md-4">
+                                              <div class="col-md-4" style="padding-top: 13px;">
 
                                                 <img src="<c:url value="/resources/img/business-agreement.png" />" class="imgCenter"/>
-                                                <br><br><br>
                                                 <p class="centerT" style="padding-top:0px">2015签订合同数</p>
-                                                <p class="btn3" style="background-color: ##65300">${talent_other.dealNum_score}项</p> 
+                                                <p id="kkk" class="btn3" style="background-color: ##65300">${talent_other.dealNum_score}项</p> 
+                                                <script type="text/javascript">
+                                                    var a = ${talent_other.dealNum_score};
+                                                    var b = a.toFixed(0);
+                                                    $("#kkk").text(b);
+                                                </script>
 
                                               </div>
                                               <div class="col-md-8">
@@ -879,7 +885,7 @@
                                                       科研成果转化评分 <span style="float: right">${score.transform_score}</span>
 
                                                     
-                                                      <div class="col-md-5 progress" style="padding-left: 0">
+                                                      <div class="col-md-12 progress" style="padding-left: 0">
                                                           <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="${score.transform_score}" aria-valuemin="0" aria-valuemax="100" style="width: ${score.transform_score}%">
                                                               
                                                           </div>  
@@ -908,10 +914,10 @@
 
                                                   <div class="row centerT">
                                                       
-                                                          <button type="button" class="btn btn-warning btn-circle btn-xl">${score.transform_rank}</button>
-                                                          <br> 在所有${score.numbers} 所高校中排名<br>
-                                                          2015年技术转让收入： ${talent_other.dealMoney_score}千元
-                                                    
+                                                          <button type="button" class="btn btn-warning btn-circle btn-xl" style="font-size: 26px;"><strong>${score.transform_rank}</strong></button>
+                                                          
+                                                          <br> 在所有${score.numbers} 所高校中排名
+                     
                                                   </div>                                                  
                                               </div>
                                           </div>
@@ -921,133 +927,11 @@
                                       </div>
 
 
-                                      <br><br>
-
                                       <!--erying end-->
-
-
-
-
-
-                                          <!--
-                                          <div class="col-md-6">
-                                              <img src="<c:url value="/resources/img/scholarship.png" />" class="imgCenter"/>
-                                              <p style="text-align: center">成果质量： ${score.paper_score} 分</p>
-                                              <p style="text-align: center">在所有${score.numbers} 所高校中排名第<span style="color: red">${score.paper_rank}</span></p>
-                                              <p style="text-align: center">您的学校超越了<span  id="paper_pctg" style="color: red">98.32%的高校</span></p>
-                                              <script type="text/javascript">
-                                               var a =  ${score.numbers};
-                                               var b =  ${score.paper_rank};
-                                               var c = (1-b/a) * 100; 
-                                               var d = c.toFixed(2);   
-                                               console.log(d);
-                                               $("#paper_pctg").text(d+"%的高校");
-                                              </script>
-                                          </div>
-                                          -->
-
-                                          <!--
-                                          <div class="col-md-6">
-                                              <p style="text-align: center" style="color: gray"> <b>论文及专利单项评分</b></p>
-                                              <div id="paperRadarChart" class="chart-container3" width: 90%></div>
-                                               
-                                               <script type="text/javascript">
-                                               var ref_score = ${paper_score.ref_score};
-                                               var sci_score = ${paper_score.sci_score};
-                                               var pku_score = ${paper_score.pku_score};
-                                               var patent_score = ${score.patent_score};
-                                               
-
-                                              var data = [
-                                                {
-                                                  className: '论文质量', // optional, can be used for styling
-                                                  axes: [
-                                                    {axis: "被引用次数", value: ref_score, xOffset: 50},
-                                                    {axis: "被SCI/EI收录", value: sci_score, yOffset: 10},
-                                                    {axis: "被ISTIC等收录", value: pku_score, xOffset: 10, yOffset: -30},   
-                                                    {axis: "专利情况", value: patent_score, xOffset: -10}              
-                                                  ]
-                                                }
-                                              ];
-
-                                            var w=500;
-                                            var h=400;
-
-                                            var mycfg = {
-                                              radius: 4,
-                                              w: w,
-                                              h: h,
-                                              maxValue: 100,
-                                              levels: 10,
-                                              ExtraWidthX: 300,
-                                              ToRight: 5,
-                                              TranslateX: -100,
-                                              color: d3.scale.category10()
-                                            }
-                                            
-                                            RadarChart.draw(".chart-container3", data, mycfg);
-
-                                            var LegendOptions = ['本高校得分'];
-                                            var colorscale = d3.scale.category10();
-
-                                            var svg = d3.select('#paperRadarChart')
-                                              .selectAll('svg')
-                                              .append('svg')
-                                              .attr("width", w)
-                                              .attr("height", h)
-
-                                            //Create the title for the legend
-                                            var text = svg.append("text")
-                                              .attr("class", "title")
-                                              .attr('transform', 'translate(-10,0)') 
-                                              .attr("x", w - 70)
-                                              .attr("y", 10)
-                                              .attr("font-size", "12px")
-                                              .attr("fill", "#404040")
-                                              .text("图例");
-                                                
-                                            //Initiate Legend 
-                                            var legend = svg.append("g")
-                                              .attr("class", "legend")
-                                              .attr("height", 100)
-                                              .attr("width", 200)
-                                              .attr('transform', 'translate(-50,20)') 
-                                              ;
-                                              //Create colour squares
-                                              legend.selectAll('rect')
-                                                .data(LegendOptions)
-                                                .enter()
-                                                .append("rect")
-                                                .attr("x", w - 65)
-                                                .attr("y", function(d, i){ return i * 20;})
-                                                .attr("width", 10)
-                                                .attr("height", 10)
-                                                .style("fill", function(d, i){ return colorscale(i);})
-                                                ;
-                                              //Create text next to squares
-                                              legend.selectAll('text')
-                                                .data(LegendOptions)
-                                                .enter()
-                                                .append("text")
-                                                .attr("x", w - 52)
-                                                .attr("y", function(d, i){ return i * 20 + 9;})
-                                                .attr("font-size", "11px")
-                                                .attr("fill", "#737373")
-                                                .text(function(d) { return d; })
-                                                ;
-                                              
-                                              
-                                              
-                                              </script>    
-                                          </div>
-
-                                              -->
-
-
-                                      
+                              
 
                                       <!-- 折线图-->
-                                      <div class="row">
+                                      <div class="row" style="PAGE-BREAK-BEFORE: always">
                                         <div class="col-md-6 col-sm-12 col-xs-12">
                                                 <div class="panel panel-default">
                                                     <div class="panel-heading">
@@ -1133,7 +1017,7 @@
                                       <hr>
 
                                       <!-- hard part -->
-                                      <div class="row">
+                                      <div class="row" style="margin-left: 5px;">
                                           <p>一级学科分类：</p>
                                           <select name="local" id="mylocal" style="width:400px;" >
                                               <option value="-1" selected="selected" >全部分类</option>
@@ -1260,12 +1144,13 @@
                                       <hr>
                                       <div id="profile1" class="row">
                                         <div class="col-md-12 col-sm-12 col-xs-12">
-                                          <div class="text-box" >
-                                              <p class="main-text" style="text-align: center" >科研投入能力</p>
-                                              <br />
+                                          <div class="panel panel-default">
+                                            <div class="panel-body" style=" padding: 0px;">
+                                                <p style="text-align: center" style="color: gray"> <b>科研投入能力</b></p>
+                                            </div>
                                           </div>
-                                        </div> 
-                                      </div> 
+                                        </div>
+                                      </div>
 
 
 
@@ -1319,14 +1204,14 @@
                                               <div style="position: relative;top:70px">
                                                   <p id="rdpp" style="font-size: 50px">${talent_other.rdMoney_score}</p>
                                                   <script type="text/javascript">
-                                                   var a =  ${talent_other.rdMoney_score}; 
-                                                   var d = a.toFixed(1);   
+                                                   var a =  ${talent_other.rdMoney_score}/1000; 
+                                                   var d = a.toFixed(0);   
                                                    
                                                    $("#rdpp").text(d);
                                                   </script>
                                                        
                                                       <hr>
-                                                  <span style="float: right">2015年R&D经费总额（千元）</span>
+                                                  <span style="float: right">2015年R&D经费总额（百万元）</span>
                                               </div>
                                               
 
@@ -1338,7 +1223,7 @@
                                                   <p id="rdmc" style="font-size: 50px">ioioioi</p>
                                                   <script type="text/javascript">
                                                    var a =  ${talent_other.rdMoneyPp_score}; 
-                                                   var d = a.toFixed(1);   
+                                                   var d = a.toFixed(0);   
                                                    console.log(d);
                                                    $("#rdmc").text(d);
                                                   </script>
@@ -1393,87 +1278,74 @@
                                       <hr>
                                       <div id="profile2" class="row">
                                         <div class="col-md-12 col-sm-12 col-xs-12">
-                                          <div class="text-box" >
-                                              <p class="main-text" style="text-align: center" >科研基础能力</p>
-                                              <br />
+                                          <div class="panel panel-default">
+                                            <div class="panel-body" style=" padding: 0px;">
+                                                <p style="text-align: center" style="color: gray"> <b>科研基础能力</b></p>
+                                            </div>
                                           </div>
-                                        </div> 
-                                      </div> 
+                                        </div>
+                                      </div>
 
-
-
-
-                                      <!-- erying edtion3 -->
+                                   <!-- erying edtion3 -->
 
                                       <div class="panel panel-default">
                                           <div class="panel-body">
                                               <div class="col-md-6">
                                                   <div class="col-md-3">
-                                                      <p class="centerT" style="font-size:30px">人才资源</p><br><br>
-                                                      <button type="button" class="btn btn-warning btn-circle-2 btn-xl imgCenter">${score.talent_rank}</button>
-                                                      <p class="centerT" style="font-size: 10px">高校排名</p>
+                                                      <img src="<c:url value="/resources/img/scientist-with-lab-goggles-and-flask-with-chemical.png" />" class="imgCenter"/>
+                                                      <p class="centerT" style="font-size:22px; padding-top: 0px;"><strong>人才资源</strong></p>
+                                                      <button type="button" class="btn btn-warning btn-circle-2 btn-xl imgCenter" style="font-size: 26px;">${score.talent_rank}</button>
+                                                      <p class="centerT" style="font-size: 15px; padding-top:2px">高校排名</p>
 
                                                   </div>
-                                                  <div class="col-md-9">
+                                                  <div class="col-md-9" style=" padding-top: 15px;">
                                                       总评分 <span style="float: right">${score.talent_score} </span>
                                                       <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
                                                         <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="${score.talent_score} " aria-valuemin="0" aria-valuemax="100" style="width: ${score.talent_score}%">
-
+                                                        ${score.talent_score}
                                                         </div>
                                                       </div>
                                                       
 
 
                                                       <div class="col-md-6" style="padding-left: 0">
-                                                        正高职科研人员比例 <span id="gaozhi" style="float:right">${talent_other.snrPctg_score}</span>
-                                                        <script type="text/javascript">
-                                                                 var a = ${talent_other.snrPctg_score}*100;
-                                                                 var d = a.toFixed(2);   
-                                                                 
-                                                                 $("#gaozhi").text(d+"%");
-                                                                </script>
-
+                                                        正高职科研人员比例 
                                                           <div class="col-md-12 progress progress-striped" style="padding-left: 0">
                                                             <div id="toss" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="${talent.yuanshi_num}" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
-                                                            <script type="text/javascript">
-                                                             var a =  ${talent_other.snrPctg_score};
-                                                             var b =  a*100;       
-                                                             $("#toss").attr('style',"width: "+b+"%");
-                                                            </script>
+                                                                <script type="text/javascript">
+                                                                 var a =  ${talent_other.snrPctg_score};
+                                                                 var b =  a*100;       
+                                                                 $("#toss").attr('style',"width: "+b+"%");
+                                                                 $("#toss").text(b.toFixed(2)+"%");
+                                                                </script>
                                                                       
-                                                           </div>  
+                                                            </div>  
                                                          </div>
                                                         </div>
 
 
-                                                        <div class="col-md-6" style="padding-left: 0">
-                                                            R&D全时人员比例 <span id="changjiang" style="float:right">${talent_other.rdPctg_score}</span>
-                                                            <script type="text/javascript">
-                                                                 var a = ${talent_other.rdPctg_score}*100;
-                                                                 var d = a.toFixed(2);   
-                                                                 
-                                                                 $("#changjiang").text(d+"%");
-                                                            </script>
-
-                                                            <div class="col-md-12 progress progress-striped" style="padding-left: 0">
+                                                        <div class="col-md-6" style="padding-left: 0; padding-right:0px">
+                                                            R&D全时人员比例
+                                                            <div class="col-md-12 progress progress-striped" style="padding-left: 0; padding-right:0px">
                                                               <div id="tors"class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="${talent_other.rdPctg_score}" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
                                                                 <script type="text/javascript">
                                                                  var a =  ${talent_other.rdPctg_score};
                                                                  var b =  a*100;       
                                                                  $("#tors").attr('style',"width: "+b+"%");
+                                                                 $("#tors").text(b.toFixed(2)+"%");
                                                                 </script>
                                                              </div>  
                                                            </div>
                                                         </div>
 
                                                         <div class="col-md-6">
-                                                            <p class="centerT" >两院院士</p> 
-                                                            <button class="btn btn-info imgCenter" style="width:50px;font-size:20px">${talent.yuanshi_num}</button>
+                                                            <p class="centerT" style="padding-top: 0px; margin-bottom: 0px;">两院院士</p> 
+                                                            <button class="btn btn-info imgCenter" style="width:50px;height: 50px;font-size:20px">${talent.yuanshi_num}</button>
                                                         </div>
 
                                                         <div class="col-md-6">
-                                                            <p class="centerT" >长江学者</p> 
-                                                            <button class="btn btn-info imgCenter" style="width:50px;font-size:20px">${talent.changjiang_num}</button>
+                                                            <p class="centerT" style="padding-top: 0px; margin-bottom: 0px;">长江学者</p> 
+                                                            <button class="btn btn-info imgCenter" style="width:50px;height: 50px;font-size:20px">${talent.changjiang_num}</button>
                                                         </div>
 
 
@@ -1484,33 +1356,34 @@
 
                                               <div class="col-md-6">
                                                   <div class="col-md-3">
-                                                      <p class="centerT" style="font-size:30px">科研平台</p><br><br>
-                                                      <button type="button" class="btn btn-primary btn-circle-2 btn-xl imgCenter">${score.platform_rank}</button>
-                                                      <p class="centerT" style="font-size: 10px">高校排名</p>
+                                                      <img src="<c:url value="/resources/img/lab-microscope.png" />" class="imgCenter"/>
+                                                      <p class="centerT" style="font-size:22px ;padding-top: 0px;"><strong>科研平台</strong></p>
+                                                      <button type="button" class="btn btn-primary btn-circle-2 btn-xl imgCenter" style="font-size: 26px;">${score.platform_rank}</button>
+                                                      <p class="centerT" style="font-size: 15px ;padding-top:2px">高校排名</p>
 
                                                   </div>
-                                                  <div class="col-md-9">
+                                                  <div class="col-md-9" style=" padding-top: 15px;">
                                                       总评分 <span style="float: right">${score.platform_score} </span>
                                                       <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
                                                         <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="${score.platform_score} " aria-valuemin="0" aria-valuemax="100" style="width: ${score.platform_score}%">
-
+                                                          ${score.platform_score}
                                                         </div>
                                                       </div>
                                                       
            
 
                                                         <div class="col-md-4">
-                                                            <p class="centerT" >一级硕士点</p> 
+                                                            <p class="centerT" style="margin-bottom: 0px; padding-top: 30px;">一级硕士点</p> 
                                                             <button class="btn btn-success imgCenter" style="width:50px;height:50px;font-size:20px">${talent.master_num}</button>
                                                         </div>
 
                                                         <div class="col-md-4">
-                                                            <p class="centerT" >一级博士点</p> 
+                                                            <p class="centerT" style="margin-bottom: 0px; padding-top: 30px;">一级博士点</p> 
                                                             <button class="btn btn-success imgCenter" style="width:50px;height:50px;font-size:20px">${talent.doc_num}</button>
                                                         </div>
 
                                                         <div class="col-md-4" style="padding:0px">
-                                                            <p class="centerT">省部级以上科研平台</p> 
+                                                            <p class="centerT" style="margin-bottom: 0px; padding-top: 30px;">省部级科研平台</p> 
                                                             <button class="btn btn-success imgCenter" style="width:50px;height:50px;font-size:20px">${talent.lab_num}</button>
                                                         </div>
 
@@ -1603,7 +1476,7 @@
         </div>
      <!-- /. WRAPPER  -->
      <div id="editor"></div>
-     <button id="cmd">generate PDF</button>
+     <button id="cmd">生成当前页PDF</button>
 
 
      <script>
@@ -1785,19 +1658,12 @@
             
         });
 
-    var doc = new jsPDF();
-    var specialElementHandlers = {
-        '#editor': function (element, renderer) {
-            return true;
-        }
-    };
 
     $('#cmd').click(function () {
-        doc.fromHTML($('#patent_num').html(), 15, 15, {
-            'width': 170,
-                'elementHandlers': specialElementHandlers
+        var pdf = new jsPDF('p', 'pt', 'letter');
+            pdf.addHTML($('#page-inner')[0], function () {
+            pdf.save('Test.pdf');
         });
-        doc.save('sample-file.pdf');
     });
     </script>
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->

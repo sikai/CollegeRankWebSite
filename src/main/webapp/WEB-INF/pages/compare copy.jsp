@@ -661,76 +661,34 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                     </div>
                                 </div>
                                 <!--general score-->
-                                <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        <div class="col-md-7 table-responsive">  
-                                            <table class="table centerT">
-                                                <thead>
-                                                  <tr class="centerT">
-                                                      <th style="width:20%">
-                                                          <img src="<c:url value="/resources/img/scholarship.png" />" class="imgCenter"/ width="50px">
-                                                        
-                                                      </th>
-                                                      <th class="centerT2">
-                                                          成果质量评分
-                                                      </th>
-                                                      <th class="centerT2">
-                                                          全国高校排名                                                  
-                                                      </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr>
-                                                      <td>
-                                                          <p>${college.college_title}  </p>                                                    
-                                                      </td>
-                                                      <td style="padding-top:4%">
-                                                          
-                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
-                                                              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="${score.patent_score}" aria-valuemin="0" aria-valuemax="100" style="width: ${score.paper_score}%">
-                                                              ${score.paper_score}
-                                                              </div> 
-                                                            </div> 
-                                                      </td>
-                                                      <td style="padding-top:4%">
-                                                          ${score.paper_rank}                                                 
-                                                      </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>
-                                                      <p id="compare_college">
-                                                      </p>
-                                                    </td>
-                                                      
-                                                    <td style="padding-top:4%">
-                                                      
-                                                      <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
-                                                              <div id="paper_score" class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="${score.patent_score}" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-                                                              </div> 
-                                                            </div>
-                                                    </td>
-                                                    <td id="paper_rank" style="padding-top:4%">
+                                <div class="row">
+                                  <div class="col-md-3">
+                                    <img src="<c:url value="/resources/img/scholarship.png" />" class="imgCenter"/>
+                                    <p style="text-align: center">成果质量： <span  style="color: red">${score.paper_score}</span> 分</p>
+                                    <p style="text-align: center">在所有${score.numbers} 所高校中排名第 <span style="color: red">${score.paper_rank}</span></p>
+                                    <p style="text-align: center">您的学校超越了<span  id="paper_pctg" style="color: red">98.32</span>%的高校</p>
+                                    <script type="text/javascript">
+                                     var a =  ${score.numbers};
+                                     var b =  ${score.paper_rank};
+                                     var c = (1-b/a) * 100; 
+                                     var d = c.toFixed(2);   
+                                     console.log(d);
+                                     $("#paper_pctg").text(d+"%的高校");
+                                    </script>
+                                  </div>
 
-                                                    </td>
-                                                  </tr>
-                                                  
-                                            
+                                  <div class="col-md-6">
+                                    <p style="text-align: center" style="color: gray"> <b>论文及专利单项评分</b></p>
+                                    <div id= "PaperRadarChart" class="chart-container3" width: 45%></div>
+                                  </div>
 
-                                                </tbody>
-
-
-                                            </table>
-                                        </div>
-
-                                        <div class="col-md-5">
-                                            <p style="text-align: center" style="color: gray"> <b>论文及专利单项评分</b></p>
-                                            <div id= "PaperRadarChart" class="chart-container3" width: 45%></div>
-                                        </div>
-                                          
-                                        
-                                    </div>
+                                  <div class="col-md-3">
+                                    <img src="<c:url value="/resources/img/scholarship.png" />" class="imgCenter"/>
+                                    <p style="text-align: center">成果质量： <span id = "paper_score" style="color: red"></span> 分</p>
+                                    <p style="text-align: center">在所有高校中排名第 <span id="paper_rank" style="color: red"></span></p>
+                                    <p style="text-align: center">您的学校超越了<span  id="paper_pctg2" style="color: red"></span>%的高校</p>
+                                  </div>
                                 </div>
-
                                 <hr>
 
                                 <!--论文能力-->
@@ -871,97 +829,74 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                 </div>
 
                                 <!--Start of 专利表格-->
-                                
-                                <!--End of 专利表格-->
-                                
-
-                                <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        <div class="col-md-7 table-responsive">  
-                                            <table class="table centerT">
-                                                <thead>
-                                                  <tr class="centerT">
-                                                      <th style="width:20%">
-                                                          <img src="<c:url value="/resources/img/diploma.png" />" class="imgCenter"/ width="50px">
-                                                        
-                                                      </th>
-                                                      <th class="centerT2">
-                                                          科研专利能力评分
-                                                      </th>
-                                                      <th class="centerT2">
-                                                          全国高校排名                                                  
-                                                      </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr>
-                                                      <td>
-                                                          <p>${college.college_title}  </p>                                                    
-                                                      </td>
-                                                      <td style="padding-top:4%">
-                                                          
-                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
-                                                              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="${score.patent_score}" aria-valuemin="0" aria-valuemax="100" style="width: ${score.patent_score}%">
-                                                              ${score.patent_score}
-                                                              </div> 
-                                                            </div> 
-                                                      </td>
-                                                      <td style="padding-top:4%">
-                                                          ${score.patent_rank}                                                  
-                                                      </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>
-                                                      <p id="compare_college3">
-                                                      </p>
-                                                    </td>
-                                                      
-                                                    <td style="padding-top:4%">
-                                                      
-                                                      <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
-                                                              <div id="compare_college2" class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="${score.patent_score}" aria-valuemin="0" aria-valuemax="100" style="width: ${score.patent_score}%">
-                                                              </div> 
-                                                            </div>
-                                                    </td>
-                                                    <td id="compare_patent_rank" style="padding-top:4%">
-
-                                                    </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>
-                                                      <p>全国高校平均得分</p>
-                                                    </td>
-                                                    <td style="padding-top:4%">
-                                                          
-                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
-                                                              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="${score_avg.patent_avg}" aria-valuemin="0" aria-valuemax="100" style="width: ${score_avg.patent_avg}%">
-                                                              ${score_avg.patent_avg}
-                                                              </div> 
-                                                            </div> 
-                                                      </td>
-                                                  </tr>
-
-                                                </tbody>
-
-
-                                            </table>
-                                        </div>
-
-                                           <div class="col-md-5">
-                                        <div class="panel panel-default">
-                                          <div class="panel-heading">
-                                              专利数量对比
-                                          </div>
-                                          <div class="panel-body">
-                                            <div id="bar_patent" style="height:250px;"></div>
-                                          </div>
-                                        </div>    
+                                <div class="col-md-7 col-sm-7 col-xs-7" style="padding:0px; padding-right:4px;">
+                                  <div class="panel panel-default" style=" margin: 5px 10px 5px 15px;">
+                                    <div class="panel-heading">
+                                          科研专利指标对比
                                     </div>
-                                          
-                                        
+                                    <div class="panel-body" style="background-color:white; padding:0px; margin:2px;"> 
+                                        <div class="table">
+                                              <table class="table table-striped">
+                                                  <thead>
+                                                      <tr>
+                                                          <th>#</th>
+                                                          <th>${college.college_title}</th>
+                                                          <th class="clg2_text"></th>
+                                                      </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                      <tr class="success">
+                                                          <td>科研专利能力评分</td>
+                                                          <td>${score.patent_score}</td>
+                                                          <td id="compare_patent_score"></td>
+                                                      </tr>
+                                                      <tr class="info">
+                                                          <td>在所有高校中排名</td>
+                                                          <td>${score.patent_rank}</td>
+                                                          <td id="compare_patent_rank"></td>
+                                                      </tr>
+                                                      <tr class="warning">
+                                                          <td>超越高校百分比</td>
+                                                          <td id="patent_num">${score.patent_rank}</td>
+                                                            <script type="text/javascript">
+                                                             var a =  ${score.numbers};
+                                                             var b =  ${score.patent_rank};
+                                                             var c = (1-b/a) * 100; 
+                                                             var d = c.toFixed(2);   
+                                                            
+                                                             $("#patent_num").text(d+"%");
+                                                            </script>    
+                                                          <td id="compare_patent_num"></td>
+                                                      </tr>
+                                                      <tr class="danger">
+                                                          <td>超越全国高校平均分</td>
+                                                          <td id="patent_avg">${score.patent_score}</td>
+                                                              <script type="text/javascript">
+                                                                  var a = ${score_avg.patent_avg};
+                                                                  var b = ${score.patent_score}-a;
+                                                                  $("#patent_avg").text(b.toFixed(2));
+                                                              </script>     
+                                                          <td id="compare_patent_avg"></td>
+                                                      </tr>
+                                                  </tbody>
+                                              </table>
+                                          </div>
                                     </div>
+                                  </div>
                                 </div>
+                                <!--End of 专利表格-->
+                                <div class="col-md-1"></div>
 
+                                <div class="col-md-4">
+                                    <div class="panel panel-default">
+                                      <div class="panel-heading">
+                                          专利数量对比
+                                      </div>
+                                      <div class="panel-body">
+                                        <div id="bar_patent"></div>
+                                      </div>
+                                    </div>    
+                                </div>
 
 
 
@@ -976,94 +911,45 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                     </div>
                                   </div>
                                 </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        <div class="col-md-7 table-responsive">  
-                                            <table class="table centerT">
-                                                <thead>
-                                                  <tr class="centerT">
-                                                      <th style="width:20%">
-                                                          <img src="<c:url value="/resources/img/badge.png" />" class="imgCenter"/ width="50px">
-                                                        
-                                                      </th>
-                                                      <th class="centerT2">
-                                                          获奖情况评分
-                                                      </th>
-                                                      <th class="centerT2">
-                                                          全国高校排名                                                  
-                                                      </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr>
-                                                      <td>
-                                                          <p>${college.college_title}  </p>                                                    
-                                                      </td>
-                                                      <td style="padding-top:4%">
-                                                          
-                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
-                                                              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="${score.prize_score}" aria-valuemin="0" aria-valuemax="100" style="width: ${score.prize_score}%">
-                                                              ${score.prize_score}
-                                                              </div> 
-                                                            </div> 
-                                                      </td>
-                                                      <td style="padding-top:4%">
-                                                          ${score.prize_rank}                                                 
-                                                      </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>
-                                                      <p id="compare_college4">
-                                                      </p>
-                                                    </td>
-                                                      
-                                                    <td style="padding-top:4%">
-                                                      
-                                                      <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
-                                                              <div id="compare_prize_score" class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="${score.patent_score}" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-                                                              </div> 
-                                                            </div>
-                                                    </td>
-                                                    <td id="compare_prize_rank" style="padding-top:4%">
-                                                    </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>
-                                                      <p>全国高校平均得分</p>
-                                                    </td>
-                                                    <td style="padding-top:4%">
-                                                          
-                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
-                                                              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="${score_avg.patent_avg}" aria-valuemin="0" aria-valuemax="100" style="width: ${score_avg.prize_avg}%">
-                                                              ${score_avg.prize_avg}
-                                                              
-                                                              </div> 
-                                                            </div> 
-                                                      </td>
-                                                  </tr>
-                                            
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <img src="<c:url value="/resources/img/badge.png" />" class="imgCenter"/>
+                                        <p style="text-align: center"><span>${college.college_title}</span></p>
+                                        <p style="text-align: center">获奖情况评分 ：<span style="color: red">${score.prize_score}</span>  分</p>
+                                        <p style="text-align: center">所有高校平均科得分 ：<span  id="prize_avg" style="color: red"> ${score_avg.prize_avg} </span> 分</p>
+                                        <p style="text-align: center">在所有${score.numbers} 所高校中排名第<span style="color: red">${score.prize_rank}</span></p>
+                                        <p style="text-align: center">您的学校超越了<span  id="prize_num" style="color: red">98.32</span>%的高校</p>
+                                            <script type="text/javascript">
+                                             var a =  ${score.numbers};
+                                             var b =  ${score.prize_rank};
+                                             var c = (1-b/a) * 100; 
+                                             var d = c.toFixed(2);   
+                                             
+                                             $("#prize_num").text(d);
 
-                                                </tbody>
+                                             var e = ${score_avg.prize_avg};
+                                             $("#prize_avg").text(e.toFixed(2));
+                                            </script>                                                
+                                    </div>
 
-
-                                            </table>
-                                        </div>
-
-                                        <div class="col-md-5">
-                                          <div class="panel panel-default">
+                                    <div class="col-md-4">
+                                        <div class="panel panel-default">
                                           <div class="panel-heading">
-                                            获奖数量对比
-                                            </div>
-                                            
-
-                                            <div class="panel-body">
-                                            <div id="bar_prize" style="height:250px;"></div>
+                                              获奖数量对比
                                           </div>
+                                          <div class="panel-body">
+                                             <div id="bar_prize"></div>
                                           </div>
+                                        </div>                                   
+                                    </div>
 
-                                        </div>
-                                          
-                                        
+                                    <div class="col-md-4">
+                                        <img src="<c:url value="/resources/img/badge.png" />" class="imgCenter"/>
+                                        <p style="text-align: center"><span id="compare_college_prize"></span></p>
+                                        <p style="text-align: center">获奖情况评分 ：<span id="compare_prize_score" style="color: red"></span>  分</p>
+                                        <p style="text-align: center">所有高校平均科得分 ：<span  id="compare_prize_avg" style="color: red"> </span> 分</p>
+                                        <p style="text-align: center">在所有高校中排名第<span id="compare_prize_rank" style="color: red"></span></p>
+                                        <p style="text-align: center">您的学校超越了<span  id="compare_prize_num" style="color: red"></span>%的高校</p>                                            
                                     </div>
                                 </div>
 
@@ -1078,95 +964,61 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                     </div>
                                   </div>
                                 </div>
-                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <img src="<c:url value="/resources/img/business-agreement.png" />" class="imgCenter"/>
+                                        <p style="text-align: center"><span>${college.college_title}</span></p>
+                                        <p style="text-align: center">科研成果转化能力评分 ：<span style="color: red">${score.transform_score}</span>  分</p>
+                                        <p style="text-align: center">所有高校平均科得分 ：<span  id="transform_avg" style="color: red"> ${score_avg.transform_avg} </span> 分</p>
+                                        <p style="text-align: center">在所有${score.numbers} 所高校中排名第<span style="color: red">${score.transform_rank}</span></p>
+                                        <p style="text-align: center">您的学校超越了<span  id="transform_num" style="color: red">98.32</span>%的高校</p>
+                                            <script type="text/javascript">
+                                             var a =  ${score.numbers};
+                                             var b =  ${score.transform_rank};
+                                             var c = (1-b/a) * 100; 
+                                             var d = c.toFixed(2);   
+                                             
+                                             $("#transform_num").text(d);
 
-                                <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        <div class="col-md-7 table-responsive">  
-                                            <table class="table centerT">
-                                                <thead>
-                                                  <tr class="centerT">
-                                                      <th style="width:20%">
-                                                          <img src="<c:url value="/resources/img/business-agreement.png" />" class="imgCenter"/ width="50px">
-                                                        
-                                                      </th>
-                                                      <th class="centerT2">
-                                                          科研成果转化能力评分
-                                                      </th>
-                                                      <th class="centerT2">
-                                                          全国高校排名                                                  
-                                                      </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr>
-                                                      <td>
-                                                          <p>${college.college_title}  </p>                                                    
-                                                      </td>
-                                                      <td style="padding-top:4%">
-                                                          
-                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
-                                                              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="${score.transform_score}" aria-valuemin="0" aria-valuemax="100" style="width: ${score.transform_score}%">
-                                                              ${score.transform_score}
-                                                              </div> 
-                                                            </div> 
-                                                      </td>
-                                                      <td style="padding-top:4%">
-                                                          ${score.transform_rank}                                               
-                                                      </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>
-                                                      <p id="compare_college5">
-                                                      </p>
-                                                    </td>
-                                                      
-                                                    <td style="padding-top:4%">
-                                                      
-                                                      <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
-                                                              <div id="compare_transform_score" class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="${score.patent_score}" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-                                                              </div> 
-                                                            </div>
-                                                    </td>
-                                                    <td id="compare_transform_rank" style="padding-top:4%">
-                                                    </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>
-                                                      <p>全国高校平均得分</p>
-                                                    </td>
-                                                    <td style="padding-top:4%">
-                                                          
-                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
-                                                              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="${score_avg.patent_avg}" aria-valuemin="0" aria-valuemax="100" style="width: ${score_avg.prize_avg}%">
-                                                              ${score_avg.prize_avg}
-                                                              
-                                                              </div> 
-                                                            </div> 
-                                                      </td>
-                                                  </tr>
-                                            
+                                             var e = ${score_avg.transform_avg};
+                                             $("#transform_avg").text(e.toFixed(2));
+                                            </script>                                                
+                                    </div>
 
-                                                </tbody>
+                                    <div class="col-md-6">
+                                        <img src="<c:url value="/resources/img/business-agreement.png" />" class="imgCenter"/>
+                                        <p style="text-align: center"><span id="compare_college_transform"></span></p>
+                                        <p style="text-align: center">科研成果转化能力评分 ：<span id="compare_transform_score" style="color: red"></span>  分</p>
+                                        <p style="text-align: center">所有高校平均科得分 ：<span  id="compare_transform_avg" style="color: red"> </span> 分</p>
+                                        <p style="text-align: center">在所有高校中排名第<span id="compare_transform_rank" style="color: red"></span></p>
+                                        <p style="text-align: center">您的学校超越了<span  id="compare_transform_num" style="color: red"></span>%的高校</p>                                            
+                                    </div>
+                                </div>
 
-
-                                            </table>
-                                        </div>
-
-                                        <div class="col-md-5">
-                                            <div class="panel panel-default">
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-4">
+                                        <div class="panel panel-default">
                                           <div class="panel-heading">
                                               签订合同数对比
                                           </div>
-                                          <div class="panel-body" >
-                                            <div id="bar_dealNum" style="height:250px"></div>
+                                          <div class="panel-body">
+                                            <div id="bar_dealNum"></div>
                                           </div>
-                                        </div>  
-
-                                        </div>
-                                          
-                                        
+                                        </div>    
                                     </div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-4">
+                                        <div class="panel panel-default">
+                                          <div class="panel-heading">
+                                              技术转让收入对比
+                                          </div>
+                                          <div class="panel-body">
+                                            <div id="bar_dealMoney"></div>
+                                          </div>
+                                        </div>    
+                                    </div>
+                                    <div class="col-md-1"></div>
                                 </div>
 
                                 <hr>
@@ -1180,154 +1032,44 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                 </div>
                          
                                     <!--人才资源-->
-                                
+                                <div class="row">
+                                  <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="panel panel-default">
+                                      <div class="panel-body" style=" padding: 0px;">
+                                          <p style="text-align: center" style="color: gray"> <b>人才资源</b></p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
 
-                                <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        <div class="col-md-6 table-responsive">  
-                                            <table class="table centerT">
-                                                <thead>
-                                                  <tr class="centerT">
-                                                      <th style="width:30%">
-                                                          <img src="<c:url value="/resources/img/scientist-with-lab-goggles-and-flask-with-chemical.png" />" class="imgCenter"/ width="50px">
-                                                        
-                                                      </th>
-                                                      <th class="centerT2">
-                                                          人才资源评分
-                                                      </th>
-                                                      <th class="centerT2">
-                                                          全国高校排名                                                  
-                                                      </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr>
-                                                      <td>
-                                                          <p>${college.college_title}  </p>                                                    
-                                                      </td>
-                                                      <td style="padding-top:4%">
-                                                          
-                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
-                                                              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="${score.talent_score}" aria-valuemin="0" aria-valuemax="100" style="width: ${score.talent_score}%">
-                                                              ${score.talent_score}
-                                                              </div> 
-                                                            </div> 
-                                                      </td>
-                                                      <td style="padding-top:4%">
-                                                          ${score.talent_rank}                                               
-                                                      </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>
-                                                      <p id="compare_college6">
-                                                      </p>
-                                                    </td>
-                                                      
-                                                    <td style="padding-top:4%">
-                                                      
-                                                      <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
-                                                              <div id="compare_talent_score" class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="${compare_talent_score}" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-                                                              </div> 
-                                                            </div>
-                                                    </td>
-                                                    <td id="compare_talent_rank" style="padding-top:4%">
-                                                    </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>
-                                                      <p>全国高校平均得分</p>
-                                                    </td>
-                                                    <td style="padding-top:4%">
-                                                          
-                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
-                                                              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="${score_avg.talent_avg}" aria-valuemin="0" aria-valuemax="100" style="width: ${score_avg.talent_avg}%">
-                                                              ${score_avg.talent_avg}
-                                                              
-                                                              </div> 
-                                                            </div> 
-                                                      </td>
-                                                  </tr>
-                                            
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <img src="<c:url value="/resources/img/scientist-with-lab-goggles-and-flask-with-chemical.png" />" class="imgCenter"/>
+                                        <p style="text-align: center"><span>${college.college_title}</span></p>
+                                        <p style="text-align: center">人才资源评分 ：<span style="color: red">${score.talent_score}</span>  分</p>
+                                        <p style="text-align: center">所有高校平均科得分 ：<span  id="talent_avg" style="color: red"> ${score_avg.talent_avg} </span> 分</p>
+                                        <p style="text-align: center">在所有${score.numbers} 所高校中排名第<span style="color: red">${score.talent_rank}</span></p>
+                                        <p style="text-align: center">您的学校超越了<span  id="talent_num" style="color: red">98.32</span>%的高校</p>
+                                            <script type="text/javascript">
+                                             var a =  ${score.numbers};
+                                             var b =  ${score.talent_rank};
+                                             var c = (1-b/a) * 100; 
+                                             var d = c.toFixed(2);   
+                                             
+                                             $("#talent_num").text(d);
 
-                                                </tbody>
+                                             var e = ${score_avg.talent_avg};
+                                             $("#talent_avg").text(e.toFixed(2));
+                                            </script>                                                
+                                    </div>
 
-
-                                            </table>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <table class="table centerT">
-                                                <thead>
-                                                  <tr class="centerT">
-                                                      <th style="width:30%">
-                                                          <img src="<c:url value="/resources/img/lab-microscope.png" />" class="imgCenter"/ width="50px">
-                                                        
-                                                      </th>
-                                                      <th class="centerT2">
-                                                          科研平台评分
-                                                      </th>
-                                                      <th class="centerT2">
-                                                          全国高校排名                                                  
-                                                      </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr>
-                                                      <td>
-                                                          <p>${college.college_title}  </p>                                                    
-                                                      </td>
-                                                      <td style="padding-top:4%">
-                                                          
-                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
-                                                              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="${score.platform_score}" aria-valuemin="0" aria-valuemax="100" style="width: ${score.platform_score}%">
-                                                              ${score.platform_score}
-                                                              </div> 
-                                                            </div> 
-                                                      </td>
-                                                      <td style="padding-top:4%">
-                                                          ${score.platform_rank}                                              
-                                                      </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>
-                                                      <p id="compare_college7">
-                                                      </p>
-                                                    </td>
-                                                      
-                                                    <td style="padding-top:4%">
-                                                      
-                                                      <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
-                                                              <div id="compare_platform_score" class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="${compare_platform_score}" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-                                                              </div> 
-                                                            </div>
-                                                    </td>
-                                                    <td id="compare_platform_rank" style="padding-top:4%">
-                                                    </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>
-                                                      <p>全国高校平均得分</p>
-                                                    </td>
-                                                    <td style="padding-top:4%">
-                                                          
-                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
-                                                              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="${score_avg.platform_avg}" aria-valuemin="0" aria-valuemax="100" style="width: ${score_avg.platform_avg}%">
-                                                              ${score_avg.platform_avg}
-                                                              
-                                                              </div> 
-                                                            </div> 
-                                                      </td>
-                                                  </tr>
-                                            
-
-                                                </tbody>
-
-
-                                            </table>
-                                           
-                                        </div>
-                                          
-                                        
+                                    <div class="col-md-6">
+                                        <img src="<c:url value="/resources/img/scientist-with-lab-goggles-and-flask-with-chemical.png" />" class="imgCenter"/>
+                                        <p style="text-align: center"><span id="compare_college_talent"></span></p>
+                                        <p style="text-align: center">人才资源评分 ：<span id="compare_talent_score" style="color: red"></span>  分</p>
+                                        <p style="text-align: center">所有高校平均科得分 ：<span  id="compare_talent_avg" style="color: red"> </span> 分</p>
+                                        <p style="text-align: center">在所有高校中排名第<span id="compare_talent_rank" style="color: red"></span></p>
+                                        <p style="text-align: center">您的学校超越了<span  id="compare_talent_num" style="color: red"></span>%的高校</p>                                            
                                     </div>
                                 </div>
 
@@ -1376,9 +1118,47 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                 </div>
                                 <hr>
 
-                             
+                                    <!--科研平台-->
+                                <div class="row">
+                                  <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="panel panel-default">
+                                      <div class="panel-body" style=" padding: 0px;">
+                                          <p style="text-align: center" style="color: gray"> <b>科研平台</b></p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
 
-                              
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <img src="<c:url value="/resources/img/lab-microscope.png" />" class="imgCenter"/>
+                                        <p style="text-align: center"><span>${college.college_title}</span></p>
+                                        <p style="text-align: center">科研平台评分 ：<span style="color: red">${score.platform_score}</span>  分</p>
+                                        <p style="text-align: center">所有高校平均科得分 ：<span  id="talent_avg" style="color: red"> ${score_avg.platform_avg} </span> 分</p>
+                                        <p style="text-align: center">在所有${score.numbers} 所高校中排名第<span style="color: red">${score.platform_rank}</span></p>
+                                        <p style="text-align: center">您的学校超越了<span  id="talent_num" style="color: red">98.32</span>%的高校</p>
+                                            <script type="text/javascript">
+                                             var a =  ${score.numbers};
+                                             var b =  ${score.platform_rank};
+                                             var c = (1-b/a) * 100; 
+                                             var d = c.toFixed(2);   
+                                             
+                                             $("#talent_num").text(d);
+
+                                             var e = ${score_avg.platform_avg};
+                                             $("#talent_avg").text(e.toFixed(2));
+                                            </script>                                                
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <img src="<c:url value="/resources/img/lab-microscope.png" />" class="imgCenter"/>
+                                        <p style="text-align: center"><span id="compare_college_platform"></span></p>
+                                        <p style="text-align: center">科研平台评分 ：<span id="compare_platform_score" style="color: red"></span>  分</p>
+                                        <p style="text-align: center">所有高校平均科得分 ：<span  id="compare_platform_avg" style="color: red"> </span> 分</p>
+                                        <p style="text-align: center">在所有高校中排名第<span id="compare_platform_rank" style="color: red"></span></p>
+                                        <p style="text-align: center">您的学校超越了<span  id="compare_platform_num" style="color: red"></span>%的高校</p>                                            
+                                    </div>
+                                </div>
 
                                 <div class="row">
                                     <div class="col-md-4">
@@ -1904,7 +1684,6 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
 
                           //Update tab1 box1
                           updateText("paper_score",data.score.paper_score);
-                          $("#paper_score").attr('style',"width: "+data.score.paper_score+"%");
                           updateText("paper_rank",data.score.paper_rank);
                           var a =  data.score.numbers;
                           var b =  data.score.paper_rank;
@@ -1950,29 +1729,13 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                           updateDonutChartSubject(data_subject1,data_subject2,college_name_left,college_compare_name);
 
                           //Update Patent text
-
                           updateText("compare_college", college_compare_name);
-                          updateText("compare_college3", college_compare_name);
-                          updateText("compare_college4", college_compare_name);
-                          updateText("compare_college5", college_compare_name);
-                          updateText("compare_college6", college_compare_name);
-                          updateText("compare_college7", college_compare_name);
-
-
-
-
-
-                          updateText("compare_college2", patent_score);
-
-
-                          
                           updateText("compare_patent_score", patent_score);
                           updateText("compare_patent_avg", (patent_score - data.score_avg.patent_avg).toFixed(2));
                           updateText("compare_patent_rank", data.score.patent_rank);
                           var numbers = data.score.numbers;
                           var patent_rank_pctg =  (1-data.score.patent_rank/numbers) * 100; 
                           updateText("compare_patent_num", patent_rank_pctg.toFixed(2)+"%");
-                           $("#compare_college2").attr('style',"width: "+patent_score+"%");
                           
                           //Update Patent bar chart
                           var patent_num1 = ${talent_patent.patent_num};
@@ -1981,7 +1744,6 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                           //Update Prize text
                           updateText("compare_college_prize", college_compare_name);
                           updateText("compare_prize_score", prize_score);
-                          $("#compare_prize_score").attr('style','width:'+prize_score+"%");
                           updateText("compare_prize_avg", data.score_avg.prize_avg.toFixed(2));
                           updateText("compare_prize_rank", data.score.prize_rank);
                           var numbers = data.score.numbers;
@@ -1995,7 +1757,6 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                           //Update Transform text
                           updateText("compare_college_transform", college_compare_name);
                           updateText("compare_transform_score", transform_score);
-                          $("#compare_transform_score").attr('style','width:'+transform_score+"%");
                           updateText("compare_transform_avg", data.score_avg.transform_avg.toFixed(2));
                           updateText("compare_transform_rank", data.score.transform_rank);
                           var numbers = data.score.numbers;
@@ -2006,7 +1767,7 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                           var dealNum_score1 = ${talent_other.dealNum_score};
                           var dealMoney_score1 = ${talent_other.dealMoney_score};
                           updateBarTwo(dealNum_score1, data.talent_other.dealNum_score, college_name_left,college_compare_name,'签订合同数',bar_dealNum);
-                          // updateBarTwo(dealMoney_score1, data.talent_other.dealMoney_score, college_name_left,college_compare_name,'技术转让收入(千元)',bar_dealMoney);
+                          updateBarTwo(dealMoney_score1, data.talent_other.dealMoney_score, college_name_left,college_compare_name,'技术转让收入(千元)',bar_dealMoney);
 
                           //Update Input tab bar charts
                           updateDecimal("projnum2", data.talent_other.projectNum_score);
@@ -2031,7 +1792,6 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                           //Update talent text
                           updateText("compare_college_talent", college_compare_name);
                           updateText("compare_talent_score", talent_score);
-                          $("#compare_talent_score").attr('style','width:'+talent_score+"%");
                           updateText("compare_talent_avg", data.score_avg.talent_avg.toFixed(2));
                           updateText("compare_talent_rank", data.score.talent_rank);
                           var talent_rank_pctg =  (1-data.score.talent_rank/numbers) * 100; 
@@ -2050,7 +1810,6 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                           //Update platform text
                           updateText("compare_college_platform", college_compare_name);
                           updateText("compare_platform_score", platform_score);
-                          $("#compare_platform_score").attr('style','width:'+platform_score+"%");
                           updateText("compare_platform_avg", data.score_avg.platform_avg.toFixed(2));
                           updateText("compare_platform_rank", data.score.platform_rank);
                           var platform_rank_pctg =  (1-data.score.platform_rank/numbers) * 100; 
@@ -2673,8 +2432,8 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                 }
 
               ];
-          var w=350;
-          var h=280;
+          var w=500;
+          var h=400;
 
           var mycfg = {
             radius: 4,

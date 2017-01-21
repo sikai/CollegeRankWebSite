@@ -45,67 +45,108 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
 				
 					
                     <li>
-                        <a class="active-menu"  ><i class="fa fa-dashboard fa-3x"></i> 首页 </a>
+                        <a class="active-menu"  ><i class="fa fa-dashboard fa-3x" style="width:42px"></i> 首页 </a>
                     </li>
                      <li>
-                        <a  href="/webapptest/overall"><i class="fa fa-desktop fa-3x"></i> 综合能力 </a>
+                        <a  href="/webapptest/overall"><i class="fa fa-desktop fa-3x" style="width:42px"></i> 综合能力 </a>
                     </li>
                     <li>
-                        <a  href="/webapptest/compare"><i class="fa fa-qrcode fa-3x"></i> 交叉对比 </a>
+                        <a  href="/webapptest/compare"><i class="fa fa-qrcode fa-3x" style="width:42px"></i> 交叉对比 </a>
                     </li>
                     <li  >
-                        <a  href="form.html"><i class="fa fa-edit fa-3x"></i> 联系我们 </a>
+                        <a  href="form.html"><i class="fa fa-edit fa-3x" style="width:42px"></i> 联系我们 </a>
                     </li>				
-					
-					 <!--                  
-                    <li>
-                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> 横向对比<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">学科对比</a>
-                            </li>
-                            <li>
-                                <a href="#">地区对比</a>
-                            </li>
-                            <li>
-                                <a href="#">办学类型对比<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">本科院校</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">专科院校</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">民办院校</a>
-                                    </li>
 
-                                </ul>
-                               
-                            </li>
-                        </ul>
-                      </li> 
-                      --> 
-                  <li  >
-                        <a  href="blank.html"><i class="fa fa-square-o fa-3x"></i> Blank Page</a>
-                    </li>	
                 </ul>
                
             </div>
             
         </nav>  
         <!-- /. NAV SIDE  -->
-        <div id="page-wrapper" >
-            <div id="page-inner">
+        <div id="page-wrapper" style="padding: 0px 0px; min-height: 700px;" >
+            <div id="page-inner" style="background-image: url('resources/img/goodback3.jpg'); height: 200px; background-size:cover; min-height: 700px;">
                 <div class="row">
-                    <div class="col-md-12">
-                     <h2>功能导航</h2>   
-                        <h5>Welcome ${username} , 欢迎回来. </h5>
+                    <div class="col-md-4" style="margin-left: 10px;">
+                      <div class="panel panel-default" style="margin-bottom: 10px;">
+                        <div class="panel-body"  style="background-image:linear-gradient(#000000, #666666); padding:5px ;margin: 1px;">
+                            <div class='col-md-2' style=" padding-left: 0px; padding-top: 26px;">
+                              <img src="<c:url value="/resources/img/icon_earth.png" />" height="60" width="60" />
+                            </div>
+
+                            <div class='col-md-10' style="padding:0">
+                                <p style="color: white; font-size: 15px; margin-left: 0 "> <strong>以大数据为基础，提供全方位、多维度的科研能力综合评价、单项学科评价，及定制化报告下载，更全面地了解高校综合能力。</strong></p>  
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4" style="margin-left: 373px;">
+                      <div class="panel panel-default" style="margin-bottom: 10px;">
+                        <div class="panel-body"  style="background-image:linear-gradient(#000000, #666666); padding:5px ;margin: 1px;">
+                            <div class='col-md-2' style=" padding-left: 0px; padding-top: 26px;">
+                              <img src="<c:url value="/resources/img/events-calendar-icon.png" />" height="60" width="60" />
+                            </div>
+
+                            <div class='col-md-10' style="padding:0">
+                                <p style="color: white; font-size: 15px; margin-left: 0 "> <strong>集论文、专利、项目、职称等多维指标为参考，提供全面的科研人员能力评析。</strong></p>  
+                            </div>
+                        </div>
+                      </div>
                     </div>
                 </div>    
+
+                <div class="row" >
+                    <div class="col-md-4" style="margin-left: 10px; margin-top: 70px;">
+                      <div class="panel panel-default" style="margin-bottom: 10px;">
+                        <div class="panel-body"  style="background-image:linear-gradient(#000000, #666666); padding:5px ;margin: 1px;">
+                            <div class='col-md-2' style=" padding-left: 0px; padding-top: 35px;">
+                              <img src="<c:url value="/resources/img/people-icon-3.png" />" height="45" width="50" />
+                            </div>
+
+                            <div class='col-md-10' style="padding:0">
+                                <p style="color: white; font-size: 15px; margin-left: 0 "> <strong>多种图表可视化数据分析，提供多所学校多项指标自定义对比，灵活了解高校间综合实力及单项学科的差距。</strong></p>  
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </div> 
+
+                <div class="row">
+                    <div class="col-md-4" style="margin-top: 49px; margin-left: 76px;">
+                      <div class="panel panel-default" style="margin-bottom: 10px;">
+                        <div class="panel-body"  style="background-image:linear-gradient(#000000, #666666); padding:5px ;margin: 1px;">
+                            <div class='col-md-2' style=" padding-left: 0px; padding-top: 26px;">
+                              <img src="<c:url value="/resources/img/computer_mouse_icon.png" />" height="60" width="60" />
+                            </div>
+
+                            <div class='col-md-10' style="padding:0">
+                                <p style="color: white; font-size: 15px; margin-left: 0 "> <strong>结合大数据分析，提供智能化未来发展策略报告，直击强势学科及当前弱点，为未来发展提供科学分析依据。</strong></p>  
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>   
+
+
+                <div class="row">
+                    <div class="col-md-4" style="margin-top: 25px; margin-left: 770px;">
+                      <div class="panel panel-default" style="margin-bottom: 10px;">
+                        <div class="panel-body"  style="background-image:linear-gradient(#000000, #666666); padding:5px ;margin: 1px;">
+                            <div class='col-md-2' style=" padding-left: 0px; padding-top: 26px;">
+                              <img src="<c:url value="/resources/img/Browsers-Safari-icon.png" />" height="60" width="60" />
+                            </div>
+
+                            <div class='col-md-10' style="padding:0; padding-left: 6px;">
+                                <p style="color: white; font-size: 15px; margin-left: 0 "> <strong>庞大的高校科研能力数据库，提供一键式查询，为您提供实时更新的各项数据详情。</strong></p>  
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>  
                 
                  <!-- /. ROW  -->
-       
+                <!--
                 <div class="row" style="align-content: center">
 	                <div class="col-md-4 col-sm-6 col-xs-12">    
 	                    <img src="<c:url value="/resources/img/p1.png" />" alt="User" style="position: relative;width:100%" /> 
@@ -113,7 +154,7 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
 	                    以大数据为基础，提供全方位、多维度的科研能力综合评价、单项学科评价，及定制化报告下载，更全面地了解高校综合能力。             
 	                    </div>  
 	                  
-	                    <!--<img src="<c:url value="/resources/img/b1.png" />"  href="/webapptest/overall" alt="User" class="col-md-4 imgCenter" style="position:absolute;bottom:5%;width:40%" />		-->
+	                    
                        <a  href="/webapptest/overall" class="col-md-4 imgCenter" style="position:absolute;bottom:5%;width:40%" ><i class="fa fa-desktop fa-3x"></i> 综合能力 </a>	
 			            </div>
 	
@@ -122,54 +163,12 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
 	                    <div style="position:absolute;left:20%;top:50%;width:60%;overflow-wrap:normal">
 	                    多种图表可视化数据分析，提供多所学校多项指标自定义对比，灵活了解高校间综合实力及单项学科的差距。             
 	                    </div>  
-	                    <!--<img src="assets/img/b2.png" class="col-md-4 center" style="position:absolute;left:25%;bottom:5%;width:40%">    -->                   
-	                    <!--<img src="<c:url value="/resources/img/b2.png" />" href="/webapptest/compare" alt="User" class="col-md-4 imgCenter" style="position:absolute;bottom:5%;width:40%" />-->
+	
                       <a  href="/webapptest/compare" class="col-md-4 imgCenter" style="position:absolute;bottom:5%;width:40%" ><i class="fa fa-qrcode fa-3x"></i> 交叉对比 </a>  
-	                </div>
-
-                  <!--
-	                
-	                <div class="col-md-4 col-sm-6 col-xs-12">    
-	                    <img src="<c:url value="/resources/img/p3.png" />" alt="User" style="position: relative;width:100%" />  
-	                    <div style="position:absolute;left:20%;top:50%;width:60%;overflow-wrap:normal">
-	                    集论文、专利、项目、职称等多维指标为参考，提供全面的科研人员能力评析。          
-	                    </div>  
-	                    <img src="<c:url value="/resources/img/b3.png" />" alt="User" class="col-md-4 imgCenter" style="position:absolute;bottom:5%;width:40%" />              
-	                </div>
-	                
-	                <div class="col-md-4 col-sm-6 col-xs-12">    
-	                   <img src="<c:url value="/resources/img/p4.png" />" alt="User" style="position: relative;width:100%" /> 
-	                    <div style="position:absolute;left:20%;top:50%;width:60%;overflow-wrap:normal">
-	                    结合大数据分析，提供智能化未来发展策略报告，直击强势学科及当前弱点，为未来发展提供科学分析依据。          
-	                    </div>  
-	                    <img src="<c:url value="/resources/img/b4.png" />" alt="User" class="col-md-4 imgCenter" style="position:absolute;bottom:5%;width:40%" />       
-	                </div>
-	                
-	                <div class="col-md-4 col-sm-6 col-xs-12">    
-	                    <img src="<c:url value="/resources/img/p5.png" />" alt="User" style="position: relative;width:100%" />  
-	                    <div style="position:absolute;left:20%;top:50%;width:60%;overflow-wrap:normal">
-	                   
-	                    庞大的高校科研能力数据库，提供一键式查询，为您提供实时更新的各项数据详情。        
-	                    </div>  
-	                    <img src="<c:url value="/resources/img/b5.png" />" alt="User" class="col-md-4 imgCenter" style="position:absolute;bottom:5%;width:40%" />
-	                </div>  
-
-                  -->   
+	                </div> 
                  </div>
-                
-                
-                
-                
-                          
-                 <!-- /. ROW  -->
-                 
-                 <!-- /. ROW  -->
-      
-                 <!-- /. ROW  -->
-                
-                 <!-- /. ROW  -->
-                
-                 <!-- /. ROW  -->
+               -->
+
                 
              <!-- /. PAGE INNER  -->
             </div>
@@ -189,26 +188,7 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
       <!-- CUSTOM SCRIPTS -->
     <script src="<c:url value="/resources/js/custom.js" />"></script>
 
-    <script>
 
-    var c = [
-            {label: "Download Sales", value: 12},
-            {label: "In-Store Sales", value: 30},
-            {label: "Mail-Order Sales", value: 20},
-            {label: "tellme Sales", value: 50}
-          ];
-
-        Morris.Donut({
-          element: 'example-1',
-          data: [
-            {value: 79, label: 'foo'},
-            {value: 19, label: 'bar'},
-            {value: 19, label: 'baz'},
-            {value: 5, label: 'A really really long label'}
-          ],
-          resize: true
-        });
-    </script>
     
     
    

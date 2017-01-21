@@ -502,5 +502,10 @@ line-height: 1.428571429;
     line-height: 1.428571429;
     font-size:20px;
 }
-
+.centerT2{
+	text-align: center;
+    font-size:12px;
+    padding-bottom:30px !important;
+	
+}
 
