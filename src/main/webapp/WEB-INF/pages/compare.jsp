@@ -67,6 +67,11 @@
         RadarChart.defaultConfig.radius = 2;
         RadarChart.defaultConfig.w = 400;
         RadarChart.defaultConfig.h = 400;
+
+        function updateDecimal2(textId, num){
+          var a = num.toFixed(2);
+          $('#'+textId).text(a);
+       }
     </script>
 </head>
 <body>
@@ -686,14 +691,15 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                                       </td>
                                                       <td style="padding-top:4%">
                                                           
-                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
+                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0; margin-left: 25px; margin-top: 18px;">
                                                               <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="${score.patent_score}" aria-valuemin="0" aria-valuemax="100" style="width: ${score.paper_score}%">
                                                               ${score.paper_score}
                                                               </div> 
                                                             </div> 
                                                       </td>
                                                       <td style="padding-top:4%">
-                                                          ${score.paper_rank}                                                 
+                                                          <button class="btn btn-success imgCenter" style="width:50px;height: 50px;font-size:20px; margin-left: 50px;">${score.paper_rank}</button>
+                                                                                                           
                                                       </td>
                                                   </tr>
                                                   <tr>
@@ -704,12 +710,13 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                                       
                                                     <td style="padding-top:4%">
                                                       
-                                                      <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
+                                                      <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0; ; margin-left: 25px; margin-top: 18px;">
                                                               <div id="paper_score" class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="${score.patent_score}" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
                                                               </div> 
                                                             </div>
                                                     </td>
-                                                    <td id="paper_rank" style="padding-top:4%">
+                                                    <td  style="padding-top:4%">
+                                                         <button id="paper_rank" class="btn btn-info imgCenter" style="width:50px;height: 50px;font-size:20px; margin-left: 50px;">${score.paper_rank}</button>
 
                                                     </td>
                                                   </tr>
@@ -885,7 +892,7 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                                           <img src="<c:url value="/resources/img/diploma.png" />" class="imgCenter"/ width="50px">
                                                         
                                                       </th>
-                                                      <th class="centerT2">
+                                                      <th class="centerT2" style="width: 50%;">
                                                           科研专利能力评分
                                                       </th>
                                                       <th class="centerT2">
@@ -898,16 +905,16 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                                       <td>
                                                           <p>${college.college_title}  </p>                                                    
                                                       </td>
-                                                      <td style="padding-top:4%">
+                                                      <td style="padding-top:4%; padding-left: 20px;">
                                                           
-                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
+                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0; margin-top: 17px;">
                                                               <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="${score.patent_score}" aria-valuemin="0" aria-valuemax="100" style="width: ${score.patent_score}%">
                                                               ${score.patent_score}
                                                               </div> 
                                                             </div> 
                                                       </td>
                                                       <td style="padding-top:4%">
-                                                          ${score.patent_rank}                                                  
+                                                          <button class="btn btn-success imgCenter" style="width:50px;height: 50px;font-size:20px; margin-left: 50px;">${score.patent_rank}</button>                                                 
                                                       </td>
                                                   </tr>
                                                   <tr>
@@ -916,29 +923,34 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                                       </p>
                                                     </td>
                                                       
-                                                    <td style="padding-top:4%">
-                                                      
-                                                      <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
+                                                    <td style="padding-top:4%; padding-left: 20px;">
+                                                          
+                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0; margin-top: 17px;">
                                                               <div id="compare_college2" class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="${score.patent_score}" aria-valuemin="0" aria-valuemax="100" style="width: ${score.patent_score}%">
                                                               </div> 
                                                             </div>
                                                     </td>
-                                                    <td id="compare_patent_rank" style="padding-top:4%">
-
+                                                    <td style="padding-top:4%">
+                                                        <button id="compare_patent_rank" class="btn btn-info imgCenter" style="width:50px;height: 50px;font-size:20px; margin-left: 50px;">${score.paper_rank}</button>
                                                     </td>
                                                   </tr>
                                                   <tr>
                                                     <td>
                                                       <p>全国高校平均得分</p>
                                                     </td>
-                                                    <td style="padding-top:4%">
+                                                    <td style="padding-top:4%; padding-left: 20px;">
                                                           
-                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
-                                                              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="${score_avg.patent_avg}" aria-valuemin="0" aria-valuemax="100" style="width: ${score_avg.patent_avg}%">
+                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0; margin-top: 17px;">
+                                                              <div id="avg_1" class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="${score_avg.patent_avg}" aria-valuemin="0" aria-valuemax="100" style="width: ${score_avg.patent_avg}%">
                                                               ${score_avg.patent_avg}
                                                               </div> 
-                                                            </div> 
+                                                                  <script type="text/javascript">
+                                                                      var a = ${score_avg.patent_avg}.toFixed(2);
+                                                                      $("#avg_1").text(a);
+                                                                  </script>
+                                                          </div> 
                                                       </td>
+                                                      <td></td>
                                                   </tr>
 
                                                 </tbody>
@@ -986,7 +998,7 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                                           <img src="<c:url value="/resources/img/badge.png" />" class="imgCenter"/ width="50px">
                                                         
                                                       </th>
-                                                      <th class="centerT2">
+                                                      <th class="centerT2" style="width: 50%;">
                                                           获奖情况评分
                                                       </th>
                                                       <th class="centerT2">
@@ -999,16 +1011,17 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                                       <td>
                                                           <p>${college.college_title}  </p>                                                    
                                                       </td>
-                                                      <td style="padding-top:4%">
+                                                      <td style="padding-top:4%; padding-left: 20px;">
                                                           
-                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
+                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0; margin-top: 17px;">
                                                               <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="${score.prize_score}" aria-valuemin="0" aria-valuemax="100" style="width: ${score.prize_score}%">
                                                               ${score.prize_score}
                                                               </div> 
                                                             </div> 
                                                       </td>
                                                       <td style="padding-top:4%">
-                                                          ${score.prize_rank}                                                 
+                                                          <button class="btn btn-success imgCenter" style="width:50px;height: 50px;font-size:20px; margin-left: 50px;">${score.prize_rank}</button>  
+                                                                                                           
                                                       </td>
                                                   </tr>
                                                   <tr>
@@ -1017,29 +1030,36 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                                       </p>
                                                     </td>
                                                       
-                                                    <td style="padding-top:4%">
-                                                      
-                                                      <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
+                                                    <td style="padding-top:4%; padding-left: 20px;">
+                                                          
+                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0; margin-top: 17px;">
                                                               <div id="compare_prize_score" class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="${score.patent_score}" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
                                                               </div> 
                                                             </div>
                                                     </td>
-                                                    <td id="compare_prize_rank" style="padding-top:4%">
+
+                                                    <td style="padding-top:4%">
+                                                        <button id="compare_prize_rank" class="btn btn-info imgCenter" style="width:50px;height: 50px;font-size:20px; margin-left: 50px;">${score.paper_rank}</button>
                                                     </td>
                                                   </tr>
                                                   <tr>
                                                     <td>
                                                       <p>全国高校平均得分</p>
                                                     </td>
-                                                    <td style="padding-top:4%">
+                                                    <td style="padding-top:4%; padding-left: 20px;">
                                                           
-                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
-                                                              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="${score_avg.patent_avg}" aria-valuemin="0" aria-valuemax="100" style="width: ${score_avg.prize_avg}%">
+                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0; margin-top: 17px;">
+                                                              <div id="avg_2" class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="${score_avg.patent_avg}" aria-valuemin="0" aria-valuemax="100" style="width: ${score_avg.prize_avg}%">
                                                               ${score_avg.prize_avg}
                                                               
-                                                              </div> 
+                                                              </div>
+                                                                  <script type="text/javascript">
+                                                                      var a = ${score_avg.prize_avg}.toFixed(2);
+                                                                      $("#avg_2").text(a);
+                                                                  </script> 
                                                             </div> 
                                                       </td>
+                                                      <td></td>
                                                   </tr>
                                             
 
@@ -1090,7 +1110,7 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                                           <img src="<c:url value="/resources/img/business-agreement.png" />" class="imgCenter"/ width="50px">
                                                         
                                                       </th>
-                                                      <th class="centerT2">
+                                                      <th class="centerT2" style="width: 50%;">
                                                           科研成果转化能力评分
                                                       </th>
                                                       <th class="centerT2">
@@ -1103,16 +1123,17 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                                       <td>
                                                           <p>${college.college_title}  </p>                                                    
                                                       </td>
-                                                      <td style="padding-top:4%">
+
+                                                      <td style="padding-top:4%; padding-left: 20px;">
                                                           
-                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
+                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0; margin-top: 17px;">
                                                               <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="${score.transform_score}" aria-valuemin="0" aria-valuemax="100" style="width: ${score.transform_score}%">
                                                               ${score.transform_score}
                                                               </div> 
-                                                            </div> 
+                                                          </div> 
                                                       </td>
                                                       <td style="padding-top:4%">
-                                                          ${score.transform_rank}                                               
+                                                          <button class="btn btn-success imgCenter" style="width:50px;height: 50px;font-size:20px; margin-left: 50px;">${score.transform_rank}</button>                                              
                                                       </td>
                                                   </tr>
                                                   <tr>
@@ -1121,29 +1142,35 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                                       </p>
                                                     </td>
                                                       
-                                                    <td style="padding-top:4%">
-                                                      
-                                                      <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
+                                                    <td style="padding-top:4%; padding-left: 20px;">
+                                                          
+                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0; margin-top: 17px;">
                                                               <div id="compare_transform_score" class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="${score.patent_score}" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
                                                               </div> 
                                                             </div>
                                                     </td>
-                                                    <td id="compare_transform_rank" style="padding-top:4%">
+                                                    <td  style="padding-top:4%">
+                                                      <button id="compare_transform_rank" class="btn btn-info imgCenter" style="width:50px;height: 50px;font-size:20px; margin-left: 50px;">${score.paper_rank}</button>
                                                     </td>
                                                   </tr>
                                                   <tr>
                                                     <td>
                                                       <p>全国高校平均得分</p>
                                                     </td>
-                                                    <td style="padding-top:4%">
+                                                    <td style="padding-top:4%; padding-left: 20px;">
                                                           
-                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
-                                                              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="${score_avg.patent_avg}" aria-valuemin="0" aria-valuemax="100" style="width: ${score_avg.prize_avg}%">
-                                                              ${score_avg.prize_avg}
+                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0; margin-top: 17px;">
+                                                              <div id="avg_3" class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="${score_avg.transform_avg}" aria-valuemin="0" aria-valuemax="100" style="width: ${score_avg.transform_avg}%">
+                                                              ${score_avg.transform_avg}
                                                               
                                                               </div> 
+                                                                  <script type="text/javascript">
+                                                                      var a = ${score_avg.transform_avg}.toFixed(2);
+                                                                      $("#avg_3").text(a);
+                                                                  </script> 
                                                             </div> 
                                                       </td>
+                                                      <td></td>
                                                   </tr>
                                             
 
@@ -1192,7 +1219,7 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                                           <img src="<c:url value="/resources/img/scientist-with-lab-goggles-and-flask-with-chemical.png" />" class="imgCenter"/ width="50px">
                                                         
                                                       </th>
-                                                      <th class="centerT2">
+                                                      <th class="centerT2" style="width:42%">
                                                           人才资源评分
                                                       </th>
                                                       <th class="centerT2">
@@ -1205,16 +1232,16 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                                       <td>
                                                           <p>${college.college_title}  </p>                                                    
                                                       </td>
-                                                      <td style="padding-top:4%">
+                                                       <td style="padding-top:4%; padding-left: 20px;">
                                                           
-                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
+                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0; margin-top: 17px;">
                                                               <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="${score.talent_score}" aria-valuemin="0" aria-valuemax="100" style="width: ${score.talent_score}%">
                                                               ${score.talent_score}
                                                               </div> 
                                                             </div> 
                                                       </td>
                                                       <td style="padding-top:4%">
-                                                          ${score.talent_rank}                                               
+                                                          <button class="btn btn-success imgCenter" style="width:50px;height: 50px;font-size:20px; margin-left: 50px;">${score.talent_rank} </button>                                              
                                                       </td>
                                                   </tr>
                                                   <tr>
@@ -1223,27 +1250,32 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                                       </p>
                                                     </td>
                                                       
-                                                    <td style="padding-top:4%">
-                                                      
-                                                      <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
+                                                     <td style="padding-top:4%; padding-left: 20px;">
+                                                          
+                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0; margin-top: 17px;">
                                                               <div id="compare_talent_score" class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="${compare_talent_score}" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
                                                               </div> 
                                                             </div>
                                                     </td>
-                                                    <td id="compare_talent_rank" style="padding-top:4%">
+                                                    <td  style="padding-top:4%">
+                                                        <button id="compare_talent_rank" class="btn btn-info imgCenter" style="width:50px;height: 50px;font-size:20px; margin-left: 50px;">${score.paper_rank}</button>
                                                     </td>
                                                   </tr>
                                                   <tr>
                                                     <td>
                                                       <p>全国高校平均得分</p>
                                                     </td>
-                                                    <td style="padding-top:4%">
+                                                    <td style="padding-top:4%; padding-left: 20px;">
                                                           
-                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
-                                                              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="${score_avg.talent_avg}" aria-valuemin="0" aria-valuemax="100" style="width: ${score_avg.talent_avg}%">
+                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0; margin-top: 17px;">
+                                                              <div id="avg_5" class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="${score_avg.talent_avg}" aria-valuemin="0" aria-valuemax="100" style="width: ${score_avg.talent_avg}%">
                                                               ${score_avg.talent_avg}
                                                               
                                                               </div> 
+                                                                  <script type="text/javascript">
+                                                                      var a = ${score_avg.talent_avg}.toFixed(2);
+                                                                      $("#avg_5").text(a);
+                                                                  </script>
                                                             </div> 
                                                       </td>
                                                   </tr>
@@ -1263,7 +1295,7 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                                           <img src="<c:url value="/resources/img/lab-microscope.png" />" class="imgCenter"/ width="50px">
                                                         
                                                       </th>
-                                                      <th class="centerT2">
+                                                      <th class="centerT2" style="width:42%">
                                                           科研平台评分
                                                       </th>
                                                       <th class="centerT2">
@@ -1276,16 +1308,17 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                                       <td>
                                                           <p>${college.college_title}  </p>                                                    
                                                       </td>
-                                                      <td style="padding-top:4%">
+                                                       <td style="padding-top:4%; padding-left: 20px;">
                                                           
-                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
+                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0; margin-top: 17px;">
                                                               <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="${score.platform_score}" aria-valuemin="0" aria-valuemax="100" style="width: ${score.platform_score}%">
                                                               ${score.platform_score}
                                                               </div> 
                                                             </div> 
                                                       </td>
                                                       <td style="padding-top:4%">
-                                                          ${score.platform_rank}                                              
+                                                          <button class="btn btn-success imgCenter" style="width:50px;height: 50px;font-size:20px; margin-left: 50px;">${score.platform_rank} </button>
+                                                                                                        
                                                       </td>
                                                   </tr>
                                                   <tr>
@@ -1294,23 +1327,24 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                                                       </p>
                                                     </td>
                                                       
-                                                    <td style="padding-top:4%">
-                                                      
-                                                      <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
+                                                     <td style="padding-top:4%; padding-left: 20px;">
+                                                          
+                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0; margin-top: 17px;">
                                                               <div id="compare_platform_score" class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="${compare_platform_score}" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
                                                               </div> 
                                                             </div>
                                                     </td>
-                                                    <td id="compare_platform_rank" style="padding-top:4%">
+                                                    <td style="padding-top:4%">
+                                                        <button id="compare_platform_rank" class="btn btn-info imgCenter" style="width:50px;height: 50px;font-size:20px; margin-left: 50px;">${score.paper_rank}</button>
                                                     </td>
                                                   </tr>
                                                   <tr>
                                                     <td>
                                                       <p>全国高校平均得分</p>
                                                     </td>
-                                                    <td style="padding-top:4%">
+                                                    <td style="padding-top:4%; padding-left: 20px;">
                                                           
-                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0">
+                                                          <div class="col-md-12 progress progress-striped active" style="background-color: #ccc;padding-left: 0; margin-top: 17px;">
                                                               <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="${score_avg.platform_avg}" aria-valuemin="0" aria-valuemax="100" style="width: ${score_avg.platform_avg}%">
                                                               ${score_avg.platform_avg}
                                                               
@@ -1958,14 +1992,8 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                           updateText("compare_college6", college_compare_name);
                           updateText("compare_college7", college_compare_name);
 
-
-
-
-
                           updateText("compare_college2", patent_score);
-
-
-                          
+                         
                           updateText("compare_patent_score", patent_score);
                           updateText("compare_patent_avg", (patent_score - data.score_avg.patent_avg).toFixed(2));
                           updateText("compare_patent_rank", data.score.patent_rank);
@@ -1976,6 +2004,7 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                           
                           //Update Patent bar chart
                           var patent_num1 = ${talent_patent.patent_num};
+                          $("#bar_patent").empty();
                           updateBarTwo(patent_num1, data.talent_patent.patent_num, college_name_left,college_compare_name,'专利数量',bar_patent);
 
                           //Update Prize text
@@ -1990,6 +2019,7 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
 
                           //Update Prize bar chart
                           var prize_num1 = ${talent.total_prize_num};
+                          $("#bar_prize").empty();
                           updateBarTwo(prize_num1, data.talent_org.total_prize_num, college_name_left,college_compare_name,'获奖数量',bar_prize);
 
                           //Update Transform text
@@ -2005,6 +2035,7 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                           //Update Transform bar chart
                           var dealNum_score1 = ${talent_other.dealNum_score};
                           var dealMoney_score1 = ${talent_other.dealMoney_score};
+                          $("#bar_dealNum").empty();
                           updateBarTwo(dealNum_score1, data.talent_other.dealNum_score, college_name_left,college_compare_name,'签订合同数',bar_dealNum);
                           // updateBarTwo(dealMoney_score1, data.talent_other.dealMoney_score, college_name_left,college_compare_name,'技术转让收入(千元)',bar_dealMoney);
 
@@ -2039,12 +2070,16 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
 
                           //Update talent bar chart
                           var YuanshiNum1 = ${talent.yuanshi_num};
+                          $("#bar_yuanshiNum").empty();
                           updateBarTwo(YuanshiNum1, data.talent_org.yuanshi_num, college_name_left,college_compare_name,'两院院士人数',bar_yuanshiNum);
                           var ChangjiangNum1 = ${talent.changjiang_num};
+                          $("#bar_changjaingNum").empty();
                           updateBarTwo(ChangjiangNum1, data.talent_org.changjiang_num, college_name_left,college_compare_name,'长江学者人数',bar_changjaingNum);
                           var snrpctgNum1 = (${talent_other.snrPctg_score}*100).toFixed(2);
+                          $("#bar_snrPctg").empty();
                           updateBarTwo(snrpctgNum1, (100*data.talent_other.snrPctg_score).toFixed(2), college_name_left,college_compare_name,'正高职科研人员比例%',bar_snrPctg);
                           var rdpctgNum1 = (${talent_other.rdPctg_score}*100).toFixed(2);
+                          $("#bar_rdPctg").empty();
                           updateBarTwo(rdpctgNum1, (100*data.talent_other.rdPctg_score).toFixed(2), college_name_left,college_compare_name,'科研人员占全时人员比例%',bar_rdPctg);
 
                           //Update platform text
@@ -2058,10 +2093,13 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
 
                           //Update platform bar chart
                           var MasterNum1 = ${talent.master_num};
+                          $("#bar_MasterNum").empty();
                           updateBarTwo(MasterNum1, data.talent_org.master_num, college_name_left,college_compare_name,'一级硕士点数量对比',bar_MasterNum);
                           var DocNum1 = ${talent.doc_num};
+                          $("#bar_DocNum").empty();
                           updateBarTwo(DocNum1, data.talent_org.doc_num, college_name_left,college_compare_name,'一级博士点数量对比',bar_DocNum);
                           var labNum1 = ${talent.lab_num};
+                          $("#bar_lab").empty();
                           updateBarTwo(labNum1, data.talent_org.lab_num, college_name_left,college_compare_name,'省部级以上科研平台数量',bar_lab);
                                  
                       }
@@ -2121,6 +2159,213 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                   },
                   success:function(msg)
                   {
+
+                    var data = msg;
+                     var college_name_left = "${college.college_title}";
+                     //updateScoreHead(data.score.overall_score, data.score.overall_rank, data.score.city_rank, college_compare_city);
+                     var college_number = ${score.numbers};
+                     updateColelge2Name(college_compare_name);
+                     updateThreePie(data.score.overall_score, data.score.overall_rank, data.score.city_rank, college_number);
+                     updateProgressBar(data.score.overall_score, data.score.overall_rank, data.score.city_rank, college_number);
+                     
+
+                    //Update lvl1 socre donut chart
+                     var input_score1 = ${score.input_score};
+                     var basic_score1 = ${score.basic_score};
+                     var output_score1 = ${score.output_score};
+                     var overall_score1 = ${score.overall_score};
+                     updateDonutChartLvl1(data.score.basic_score, data.score.input_score, data.score.output_score, data.score.overall_score, basic_score1, input_score1, output_score1, overall_score1, college_name_left, college_compare_name);   
+
+                    //Update lvl2 score donut chart
+                     var talent_score = data.score.talent_score;
+                     var platform_score = data.score.platform_score;
+                     var input_score = data.score.input_score;
+                     var paper_score = data.score.paper_score;
+                     var prize_score = data.score.prize_score;
+                     var patent_score = data.score.patent_score;
+                     var transform_score = data.score.transform_score;
+
+                     var talent_score1 = ${score.talent_score};
+                     var platform_score1 = ${score.platform_score};
+                     var paper_score1 = ${score.paper_score};
+                     var prize_score1 = ${score.prize_score};
+                     var patent_score1 = ${score.patent_score};
+                     var transform_score1 = ${score.transform_score};
+             
+                 
+                     updateTable1(college_compare_name, data.score.basic_score, data.score.input_score, data.score.output_score, data.score.overall_score);
+                     updateTable2(college_compare_name,talent_score,platform_score,input_score,paper_score,prize_score,patent_score,transform_score);
+
+                     updateDonutChartLvl2(talent_score,platform_score,input_score,paper_score,prize_score,patent_score,transform_score,talent_score1,platform_score1,input_score1,paper_score1,prize_score1,patent_score1,transform_score1,college_name_left,college_compare_name);
+
+                    //Update tab1 box1
+                    updateText("paper_score",data.score.paper_score);
+                    $("#paper_score").attr('style',"width: "+data.score.paper_score+"%");
+                    updateText("paper_rank",data.score.paper_rank);
+                    var a =  data.score.numbers;
+                    var b =  data.score.paper_rank;
+                    var c = (1-b/a) * 100; 
+                    var d = c.toFixed(2);   
+                    console.log(d);
+                    updateText("paper_pctg2",d);
+
+                    //update tab1 spiderchart paper                         
+                    var ref_score = data.score_paper.ref_score;
+                    var sci_score = data.score_paper.sci_score;
+                    var pku_score = data.score_paper.pku_score;
+                    var patent_score = data.score.patent_score;
+
+                    var ref_score1 = ${paper_score.ref_score};
+                    var sci_score1 = ${paper_score.sci_score};
+                    var pku_score1 = ${paper_score.pku_score};
+                    var patent_score1 = ${score.patent_score};
+                    
+                    updateSpiderChartPaper(ref_score,sci_score,pku_score,patent_score,ref_score1,sci_score1,pku_score1,patent_score1,college_name_left, college_compare_name);
+
+                    //Update Line chart for all paper numbers
+                    var data_paper1 = eval('('+'${paper_year_json}'+')');    
+                    var data_paper2 = eval('('+'data.paper_by_year'+')'); 
+                    updateLineChartpaperNum(data_paper1,data_paper2,college_name_left,college_compare_name);
+
+                    //Update Line chart for SCI and EI numbers
+                    updateLineChartSCINum(data_paper1,data_paper2,college_name_left,college_compare_name);
+
+                    //Update Line chart for CSSCI ISITC PKU numbers
+                    updateLineChartPKUNum(data_paper1,data_paper2,college_name_left,college_compare_name);
+
+                    //Update Line chart for ref numbers
+                    updateLineChartRefNum(data_paper1,data_paper2,college_name_left,college_compare_name);
+
+                    //UPdate panel heading title for subject donut chart
+                    updateText("sub1_left", college_name_left);
+                    updateText("sub1_right", college_compare_name);
+
+                    //Update donut chart for lvl1 subject
+                    var data_subject1 = eval('('+'${sub1_num_json}'+')'); 
+                    var data_subject2 = eval('('+'data.sub1_num_list'+')'); 
+                    updateDonutChartSubject(data_subject1,data_subject2,college_name_left,college_compare_name);
+
+                    //Update Patent text
+
+                    updateText("compare_college", college_compare_name);
+                    updateText("compare_college3", college_compare_name);
+                    updateText("compare_college4", college_compare_name);
+                    updateText("compare_college5", college_compare_name);
+                    updateText("compare_college6", college_compare_name);
+                    updateText("compare_college7", college_compare_name);
+
+                    updateText("compare_college2", patent_score);
+                   
+                    updateText("compare_patent_score", patent_score);
+                    updateText("compare_patent_avg", (patent_score - data.score_avg.patent_avg).toFixed(2));
+                    updateText("compare_patent_rank", data.score.patent_rank);
+                    var numbers = data.score.numbers;
+                    var patent_rank_pctg =  (1-data.score.patent_rank/numbers) * 100; 
+                    updateText("compare_patent_num", patent_rank_pctg.toFixed(2)+"%");
+                     $("#compare_college2").attr('style',"width: "+patent_score+"%");
+                    
+                    //Update Patent bar chart
+                    var patent_num1 = ${talent_patent.patent_num};
+                    $("#bar_patent").empty();
+                    updateBarTwo(patent_num1, data.talent_patent.patent_num, college_name_left,college_compare_name,'专利数量',bar_patent);
+
+                    //Update Prize text
+                    updateText("compare_college_prize", college_compare_name);
+                    updateText("compare_prize_score", prize_score);
+                    $("#compare_prize_score").attr('style','width:'+prize_score+"%");
+                    updateText("compare_prize_avg", data.score_avg.prize_avg.toFixed(2));
+                    updateText("compare_prize_rank", data.score.prize_rank);
+                    var numbers = data.score.numbers;
+                    var prize_rank_pctg =  (1-data.score.prize_rank/numbers) * 100; 
+                    updateText("compare_prize_num", prize_rank_pctg.toFixed(2));
+
+                    //Update Prize bar chart
+                    var prize_num1 = ${talent.total_prize_num};
+                    $("#bar_prize").empty();
+                    updateBarTwo(prize_num1, data.talent_org.total_prize_num, college_name_left,college_compare_name,'获奖数量',bar_prize);
+
+                    //Update Transform text
+                    updateText("compare_college_transform", college_compare_name);
+                    updateText("compare_transform_score", transform_score);
+                    $("#compare_transform_score").attr('style','width:'+transform_score+"%");
+                    updateText("compare_transform_avg", data.score_avg.transform_avg.toFixed(2));
+                    updateText("compare_transform_rank", data.score.transform_rank);
+                    var numbers = data.score.numbers;
+                    var transform_rank_pctg =  (1-data.score.transform_rank/numbers) * 100; 
+                    updateText("compare_transform_num", transform_rank_pctg.toFixed(2));
+
+                    //Update Transform bar chart
+                    var dealNum_score1 = ${talent_other.dealNum_score};
+                    var dealMoney_score1 = ${talent_other.dealMoney_score};
+                    $("#bar_dealNum").empty();
+                    updateBarTwo(dealNum_score1, data.talent_other.dealNum_score, college_name_left,college_compare_name,'签订合同数',bar_dealNum);
+                    // updateBarTwo(dealMoney_score1, data.talent_other.dealMoney_score, college_name_left,college_compare_name,'技术转让收入(千元)',bar_dealMoney);
+
+                    //Update Input tab bar charts
+                    updateDecimal("projnum2", data.talent_other.projectNum_score);
+                    updateDecimal("abc2", data.talent_org.nature_prize_num);
+                    updateDecimal("abc3", data.talent_org.social_prize_num);
+                    updateDecimal("abc4", data.talent_other.rdMoney_score/1000);
+                    updateDecimal("abc5",  data.talent_other.rdMoneyPp_score);
+
+                    /*
+                    var projectNum1 = ${talent_other.projectNum_score};
+                    updateBarTwo(projectNum1, data.talent_other.projectNum_score, college_name_left,college_compare_name,'科研课题总数',bar_projNum);
+                    var RDMoneyNum1 = ${talent_other.rdMoney_score};
+                    updateBarTwo(RDMoneyNum1, data.talent_other.rdMoney_score, college_name_left,college_compare_name,'科研经费总额(千元)',bar_RDNum);
+                    var RDMoneyppNum1 = ${talent_other.rdMoneyPp_score};
+                    updateBarTwo(RDMoneyppNum1, data.talent_other.rdMoneyPp_score, college_name_left,college_compare_name,'人均科研经费',bar_RDppNum);
+                    var NaturePrizeNum1 = ${talent.nature_prize_num};
+                    updateBarTwo(NaturePrizeNum1, data.talent_org.nature_prize_num, college_name_left,college_compare_name,'国家自然科学基金立项数',bar_NaturePrize);
+                    var SocailPrizeNum1 = ${talent.social_prize_num};
+                    updateBarTwo(SocailPrizeNum1, data.talent_org.social_prize_num, college_name_left,college_compare_name,'国家社会科学基金立项数',bar_SocialPrize);
+                    */
+
+                    //Update talent text
+                    updateText("compare_college_talent", college_compare_name);
+                    updateText("compare_talent_score", talent_score);
+                    $("#compare_talent_score").attr('style','width:'+talent_score+"%");
+                    updateText("compare_talent_avg", data.score_avg.talent_avg.toFixed(2));
+                    updateText("compare_talent_rank", data.score.talent_rank);
+                    var talent_rank_pctg =  (1-data.score.talent_rank/numbers) * 100; 
+                    updateText("compare_talent_num", talent_rank_pctg.toFixed(2));
+
+                    //Update talent bar chart
+                    var YuanshiNum1 = ${talent.yuanshi_num};
+                    $("#bar_yuanshiNum").empty();
+                    updateBarTwo(YuanshiNum1, data.talent_org.yuanshi_num, college_name_left,college_compare_name,'两院院士人数',bar_yuanshiNum);
+                    var ChangjiangNum1 = ${talent.changjiang_num};
+                    $("#bar_changjaingNum").empty();
+                    updateBarTwo(ChangjiangNum1, data.talent_org.changjiang_num, college_name_left,college_compare_name,'长江学者人数',bar_changjaingNum);
+                    var snrpctgNum1 = (${talent_other.snrPctg_score}*100).toFixed(2);
+                    $("#bar_snrPctg").empty();
+                    updateBarTwo(snrpctgNum1, (100*data.talent_other.snrPctg_score).toFixed(2), college_name_left,college_compare_name,'正高职科研人员比例%',bar_snrPctg);
+                    var rdpctgNum1 = (${talent_other.rdPctg_score}*100).toFixed(2);
+                    $("#bar_rdPctg").empty();
+                    updateBarTwo(rdpctgNum1, (100*data.talent_other.rdPctg_score).toFixed(2), college_name_left,college_compare_name,'科研人员占全时人员比例%',bar_rdPctg);
+
+                    //Update platform text
+                    updateText("compare_college_platform", college_compare_name);
+                    updateText("compare_platform_score", platform_score);
+                    $("#compare_platform_score").attr('style','width:'+platform_score+"%");
+                    updateText("compare_platform_avg", data.score_avg.platform_avg.toFixed(2));
+                    updateText("compare_platform_rank", data.score.platform_rank);
+                    var platform_rank_pctg =  (1-data.score.platform_rank/numbers) * 100; 
+                    updateText("compare_platform_num", platform_rank_pctg.toFixed(2));
+
+                    //Update platform bar chart
+                    var MasterNum1 = ${talent.master_num};
+                    $("#bar_MasterNum").empty();
+                    updateBarTwo(MasterNum1, data.talent_org.master_num, college_name_left,college_compare_name,'一级硕士点数量对比',bar_MasterNum);
+                    var DocNum1 = ${talent.doc_num};
+                    $("#bar_DocNum").empty();
+                    updateBarTwo(DocNum1, data.talent_org.doc_num, college_name_left,college_compare_name,'一级博士点数量对比',bar_DocNum);
+                    var labNum1 = ${talent.lab_num};
+                    $("#bar_lab").empty();
+                    updateBarTwo(labNum1, data.talent_org.lab_num, college_name_left,college_compare_name,'省部级以上科研平台数量',bar_lab);
+
+                      /*
+
                       var data = msg;
                       var college_name_left = "${college.college_title}";
                       //updateScoreHead(data.score.overall_score, data.score.overall_rank, data.score.city_rank, college_compare_city);
@@ -2259,18 +2504,7 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                     updateDecimal("abc3", data.talent_org.social_prize_num);
                     updateDecimal("abc4", data.talent_other.rdMoney_score/1000);
                     updateDecimal("abc5",  data.talent_other.rdMoneyPp_score);
-                    /*
-                    var projectNum1 = ${talent_other.projectNum_score};
-                    updateBarTwo(projectNum1, data.talent_other.projectNum_score, college_name_left,college_compare_name,'科研课题总数',bar_projNum);
-                    var RDMoneyNum1 = ${talent_other.rdMoney_score};
-                    updateBarTwo(RDMoneyNum1, data.talent_other.rdMoney_score, college_name_left,college_compare_name,'科研经费总额(千元)',bar_RDNum);
-                    var RDMoneyppNum1 = ${talent_other.rdMoneyPp_score};
-                    updateBarTwo(RDMoneyppNum1, data.talent_other.rdMoneyPp_score, college_name_left,college_compare_name,'人均科研经费',bar_RDppNum);
-                    var NaturePrizeNum1 = ${talent.nature_prize_num};
-                    updateBarTwo(NaturePrizeNum1, data.talent_org.nature_prize_num, college_name_left,college_compare_name,'国家自然科学基金立项数',bar_NaturePrize);
-                    var SocailPrizeNum1 = ${talent.social_prize_num};
-                    updateBarTwo(SocailPrizeNum1, data.talent_org.social_prize_num, college_name_left,college_compare_name,'国家社会科学基金立项数',bar_SocialPrize);
-                    */
+   
 
                     //Update talent text
                     updateText("compare_college_talent", college_compare_name);
@@ -2304,7 +2538,9 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
                     var DocNum1 = ${talent.doc_num};
                     updateBarTwo(DocNum1, data.talent_org.doc_num, college_name_left,college_compare_name,'一级博士点数量对比',bar_DocNum);
                     var labNum1 = ${talent.lab_num};
-                    updateBarTwo(labNum1, data.talent_org.lab_num, college_name_left,college_compare_name,'省部级以上科研平台数量',bar_lab);         
+                    updateBarTwo(labNum1, data.talent_org.lab_num, college_name_left,college_compare_name,'省部级以上科研平台数量',bar_lab);  
+
+                    */       
                   }
                 });   
               }
@@ -2995,7 +3231,7 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
        }
 
        function updateBarTwo(data,data2,name1,name2,title,chart_id){ 
-        $("#chart_id").empty();  
+        //$("#"+chart_id.toString()).empty();  
         var data3_new = [];
         data3_new.push({
           "x":title,
@@ -3017,6 +3253,10 @@ font-size: 16px;"> 欢迎您！${student.lastName}${student.firstName}, 来自${
           $('#'+textId).text(a);
        }
 
+       function updateDecimal2(textId, num){
+          var a = num.toFixed(2);
+          $('#'+textId).text(a);
+       }
  
 
     </script>  
